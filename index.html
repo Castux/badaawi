@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shawaabdif az Akhshawi Uzbakhaamdif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<style>
+  @font-face {
+    font-family: 'Badaawi';
+    src: url('badaawi-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* ── Tokens ── */
+  :root {
+    --sand:       #F0E9DC;
+    --parchment:  #E8DCCB;
+    --dust:       #C9B99A;
+    --ink:        #2A2118;
+    --ink-soft:   #4A3D2E;
+    --ink-faint:  #7A6A55;
+    --copper:     #8B5A2B;
+    --copper-dim: #C49A6C;
+    --sea:        #2C4A52;
+    --sea-light:  #3D6B77;
+    --accent:     #B5461A;
+
+    --font-display: 'Cinzel', serif;
+    --font-body:    'Source Serif 4', Georgia, serif;
+    --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+    --font-script:  'Badaawi', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sand);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--sea);
+    color: var(--parchment);
+    text-align: center;
+    padding: 2.5rem 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Signature element: geometric compass-rose / arabesque etched into header */
+  header::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 460px; height: 460px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, transparent 38%, rgba(192,160,110,0.07) 39%, rgba(192,160,110,0.07) 40%, transparent 41%),
+                radial-gradient(circle, transparent 58%, rgba(192,160,110,0.05) 59%, rgba(192,160,110,0.05) 60%, transparent 61%),
+                radial-gradient(circle, transparent 78%, rgba(192,160,110,0.04) 79%, rgba(192,160,110,0.04) 80%, transparent 81%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .header-inner { position: relative; z-index: 1; }
+
+  .header-subtitle {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--copper-dim);
+    margin-bottom: 0.6rem;
+  }
+
+  header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--parchment);
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+  }
+
+  .header-gloss {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--dust);
+    margin-bottom: 2rem;
+  }
+
+  /* ── Tabs ── */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tab-btn {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.7rem 2.2rem;
+    border: none;
+    cursor: pointer;
+    background: rgba(255,255,255,0.06);
+    color: var(--dust);
+    border-top: 2px solid transparent;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .tab-btn:hover {
+    background: rgba(255,255,255,0.11);
+    color: var(--parchment);
+  }
+
+  .tab-btn.active {
+    background: var(--sand);
+    color: var(--sea);
+    border-top-color: var(--copper);
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Glossary tab ── */
+  .glossary-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+
+  .search-wrap {
+    flex: 1 1 220px;
+    position: relative;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 0.75rem; top: 50%;
+    transform: translateY(-50%);
+    width: 15px; height: 15px;
+    stroke: var(--ink-faint);
+    fill: none;
+    stroke-width: 2;
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 0.55rem 0.75rem 0.55rem 2.2rem;
+    border: 1.5px solid var(--dust);
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  #search:focus { border-color: var(--sea); }
+  #search::placeholder { color: var(--ink-faint); }
+
+  .filter-wrap {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border: 1.5px solid var(--dust);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .pill:hover { border-color: var(--copper); color: var(--copper); }
+  .pill.active { background: var(--sea); border-color: var(--sea); color: var(--parchment); }
+
+  .entry-count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--dust);
+    border-radius: 2px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  thead {
+    background: var(--sea);
+    color: var(--parchment);
+  }
+
+  thead th {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  thead th:hover { background: var(--sea-light); }
+
+  thead th .sort-arrow {
+    display: inline-block;
+    margin-left: 0.3em;
+    opacity: 0.4;
+    font-size: 0.65rem;
+  }
+  thead th.sorted .sort-arrow { opacity: 1; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--parchment);
+    transition: background 0.12s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #EDE4D3; }
+
+  tbody tr:nth-child(even) { background: rgba(0,0,0,0.018); }
+  tbody tr:nth-child(even):hover { background: #EDE4D3; }
+
+  td {
+    padding: 0.6rem 1rem;
+    vertical-align: top;
+  }
+
+  td.word {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: var(--sea);
+    white-space: nowrap;
+  }
+
+  td.word .latin {
+    display: block;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: var(--sea);
+  }
+
+  td.word .script {
+    display: block;
+    font-family: var(--font-script);
+    font-feature-settings: "liga" 1;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    color: var(--copper);
+    margin-top: 0.1rem;
+    letter-spacing: 0.01em;
+  }
+
+  td.plural .latin {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--copper);
+  }
+
+  td.plural .script {
+    display: block;
+    font-family: var(--font-script);
+    font-feature-settings: "liga" 1;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    color: var(--copper-dim);
+    margin-top: 0.1rem;
+  }
+
+  td.class {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  td.translation { color: var(--ink-soft); }
+
+  td.notes {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-faint);
+    max-width: 200px;
+  }
+
+  mark {
+    background: #F5D97A;
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  /* Dual latin + script rendering in grammar prose and tables */
+  .lang-form {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    vertical-align: middle;
+    line-height: 1;
+    gap: 0.1em;
+  }
+
+  .lang-form .lat {
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 0.85em;
+    color: var(--sea);
+  }
+
+  .lang-form .scr {
+    font-family: var(--font-script);
+    font-feature-settings: "liga" 1;
+    font-size: 1.3em;
+    color: var(--copper-dim);
+    line-height: 1.15;
+  }
+
+  /* In table cells, stay inline so forms flow with adjacent text
+     (e.g. "-ad, sing." in the verbs table) instead of breaking to a new line. */
+  td .lang-form {
+    display: inline-flex;
+  }
+
+  td .lang-form .lat {
+    font-size: 0.82rem;
+  }
+
+  td .lang-form .scr {
+    font-size: 1.25rem;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--ink-faint);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  /* ── Grammar tab ── */
+  .grammar-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0;
+    border: 1px solid var(--dust);
+    border-radius: 2px;
+    min-height: 600px;
+  }
+
+  .grammar-nav {
+    background: var(--sea);
+    padding: 1.5rem 0;
+    border-right: none;
+  }
+
+  .grammar-nav-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.6rem 1.4rem;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dust);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .grammar-nav-item:hover { background: rgba(255,255,255,0.08); color: var(--parchment); }
+  .grammar-nav-item.active { color: var(--parchment); border-left-color: var(--copper); background: rgba(255,255,255,0.1); }
+
+  .grammar-content {
+    padding: 2rem 2.2rem;
+    overflow-y: auto;
+  }
+
+  .grammar-section { display: none; }
+  .grammar-section.active { display: block; }
+
+  .grammar-section h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--sea);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid var(--dust);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .grammar-toc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    background: var(--parchment);
+    border-left: 3px solid var(--copper);
+    padding: 0.7rem 1rem;
+    margin: 0 0 1.5rem;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .grammar-toc a {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 0.15rem 0;
+    transition: color 0.15s;
+  }
+  .grammar-toc a:hover { color: var(--copper); }
+  .grammar-toc a.toc-sub { padding-left: 1rem; font-size: 0.58rem; color: var(--ink-faint); }
+
+  .grammar-section h3 {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--copper);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 1.4rem 0 0.5rem;
+  }
+
+  .grammar-section p {
+    margin-bottom: 0.8rem;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  .grammar-section ul {
+    margin: 0.4rem 0 0.9rem 1.2rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  .grammar-section ul li { margin-bottom: 0.25rem; }
+
+  em, i { color: var(--sea); font-style: italic; }
+
+  .grammar-section table {
+    font-size: 0.82rem;
+    margin: 0.75rem 0 1.1rem;
+    border: 1px solid var(--dust);
+  }
+
+  .grammar-section thead th {
+    background: var(--parchment);
+    color: var(--ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    padding: 0.5rem 0.75rem;
+    cursor: default;
+  }
+  .grammar-section thead th:hover { background: var(--parchment); }
+
+  .grammar-section td {
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid var(--parchment);
+    color: var(--ink-soft);
+  }
+
+  .grammar-section td:first-child {
+    font-family: var(--font-mono);
+    color: var(--sea);
+    font-size: 0.82rem;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+
+  .phoneme-grid {
+    display: inline-grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 4px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--sea);
+    margin: 0.4rem 0 0.9rem;
+  }
+
+  .phoneme-grid span { padding: 2px 4px; }
+
+  .hiatus-table {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+
+  .hiatus-table th:first-child, .hiatus-table td:first-child {
+    font-family: var(--font-mono);
+    color: var(--copper);
+    font-weight: 500;
+  }
+
+  .rule-block {
+    background: var(--parchment);
+    border-left: 3px solid var(--copper);
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .rule-block span { color: var(--sea); }
+
+  @media (max-width: 640px) {
+    .grammar-grid { grid-template-columns: 1fr; }
+    .grammar-nav { padding: 0.5rem 0; border-right: none; border-bottom: 1px solid var(--dust); display: flex; flex-wrap: wrap; }
+    .grammar-nav-item { border-left: none; border-bottom: 3px solid transparent; padding: 0.5rem 0.9rem; }
+    .grammar-nav-item.active { border-bottom-color: var(--copper); border-left-color: transparent; }
+    .grammar-content { padding: 1.2rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-subtitle">Reference</div>
+    <h1>Shawaabdif az Akhshawi Uzbakhaamdif</h1>
+    <div class="header-script" style="font-family:var(--font-script);font-feature-settings:'liga' 1;font-size:clamp(1.1rem,3.2vw,2rem);color:var(--copper-dim);letter-spacing:0.02em;line-height:1.3;margin-bottom:0.2rem;">shawaabdif az akhshawi uzbakhaamdif</div>
+    <div class="header-gloss">The Speech of the Motionless Sea</div>
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" role="tab" data-tab="glossary">Glossary</button>
+      <button class="tab-btn" role="tab" data-tab="grammar">Grammar</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── GLOSSARY PANEL ── -->
+  <div id="panel-glossary" class="tab-panel active" role="tabpanel">
+
+    <div class="glossary-controls">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        <input type="text" id="search" placeholder="Search word or translation…" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="filter-wrap" id="class-filters">
+        <button class="pill active" data-class="">All</button>
+      </div>
+      <div class="entry-count" id="entry-count"></div>
+    </div>
+
+    <div class="table-wrap">
+      <table id="glossary-table">
+        <thead>
+          <tr>
+            <th data-col="word">Word <span class="sort-arrow">↕</span></th>
+            <th data-col="class">Class <span class="sort-arrow">↕</span></th>
+            <th data-col="translation">Translation <span class="sort-arrow">↕</span></th>
+            <th data-col="plural">Plural root <span class="sort-arrow">↕</span></th>
+            <th data-col="notes">Notes <span class="sort-arrow">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="glossary-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── GRAMMAR PANEL ── -->
+  <div id="panel-grammar" class="tab-panel" role="tabpanel">
+    <div class="grammar-grid">
+      <nav class="grammar-nav" id="grammar-nav" aria-label="Grammar sections"></nav>
+      <div class="grammar-content" id="grammar-content"></div>
+    </div>
+  </div><!-- /panel-grammar -->
+
+</main>
+
+<script src="marked.min.js"></script>
+<script>
+// ── Glossary parser ─────────────────────────────────────────────────────────
+// Parse the Glossary.md table with `marked`, then read the rows back out of the
+// generated DOM as a clean [word, class, translation, plural, notes] array.
+function parseGlossaryMd(text) {
+  const tmp = document.createElement("div");
+  tmp.innerHTML = marked.parse(text);
+  const rows = [];
+  tmp.querySelectorAll("table tbody tr").forEach(tr => {
+    const cells = [...tr.querySelectorAll("td")].map(td => td.textContent.trim());
+    rows.push([
+      cells[0] || "",  // word
+      cells[1] || "",  // class
+      cells[2] || "",  // translation
+      cells[3] || "",  // plural root
+      cells[4] || "",  // notes
+    ]);
+  });
+  return rows;
+}
+
+// ── State ──────────────────────────────────────────────────────────────────
+let GLOSSARY = [];
+let query = "";
+let activeClass = "";
+let sortCol = 0;
+let sortAsc = true;
+
+// ── DOM refs ───────────────────────────────────────────────────────────────
+const searchEl    = document.getElementById("search");
+const bodyEl      = document.getElementById("glossary-body");
+const countEl     = document.getElementById("entry-count");
+const filterWrap  = document.getElementById("class-filters");
+const headers     = document.querySelectorAll("thead th[data-col]");
+
+// ── Build class filter pills ───────────────────────────────────────────────
+function buildFilters() {
+  // Remove any pills added previously (except "All")
+  filterWrap.querySelectorAll(".pill:not([data-class=''])").forEach(p => p.remove());
+
+  const CLASSES = [...new Set(
+    GLOSSARY.flatMap(r => r[1].split(/,\s*/))
+  )].sort();
+
+  CLASSES.forEach(cls => {
+    const btn = document.createElement("button");
+    btn.className = "pill";
+    btn.dataset.class = cls;
+    btn.textContent = cls;
+    filterWrap.appendChild(btn);
+  });
+}
+
+// ── Highlight helper ───────────────────────────────────────────────────────
+function hl(text, q) {
+  if (!q) return escHtml(text);
+  const idx = text.toLowerCase().indexOf(q.toLowerCase());
+  if (idx < 0) return escHtml(text);
+  return escHtml(text.slice(0,idx)) +
+         "<mark>" + escHtml(text.slice(idx, idx+q.length)) + "</mark>" +
+         escHtml(text.slice(idx+q.length));
+}
+function escHtml(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function render() {
+  const q = query.toLowerCase().trim();
+
+  let rows = GLOSSARY.filter(r => {
+    const classMatch = !activeClass || r[1].split(/,\s*/).includes(activeClass);
+    const textMatch  = !q ||
+      r[0].toLowerCase().includes(q) ||
+      r[2].toLowerCase().includes(q) ||
+      r[3].toLowerCase().includes(q);
+    return classMatch && textMatch;
+  });
+
+  // Sort
+  rows.sort((a, b) => {
+    const av = a[sortCol] || "", bv = b[sortCol] || "";
+    return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+  });
+
+  countEl.textContent = rows.length + " / " + GLOSSARY.length + " entries";
+
+  if (rows.length === 0) {
+    bodyEl.innerHTML = `<tr><td colspan="5" class="no-results">No entries match — try a different search.</td></tr>`;
+    return;
+  }
+
+  bodyEl.innerHTML = rows.map(r => `
+    <tr>
+      <td class="word">
+        <span class="latin">${hl(r[0], q)}</span>
+        <span class="script">${r[0]}</span>
+      </td>
+      <td class="class">${escHtml(r[1])}</td>
+      <td class="translation">${hl(r[2], q)}</td>
+      <td class="plural">${r[3] ? `<span class="latin">${hl(r[3], q)}</span><span class="script">${r[3]}</span>` : ''}</td>
+      <td class="notes">${escHtml(r[4])}</td>
+    </tr>
+  `).join("");
+}
+
+// ── Sort headers ───────────────────────────────────────────────────────────
+const colIndex = {word:0, class:1, translation:2, plural:3, notes:4};
+
+headers.forEach(th => {
+  th.addEventListener("click", () => {
+    const col = colIndex[th.dataset.col];
+    if (sortCol === col) { sortAsc = !sortAsc; }
+    else { sortCol = col; sortAsc = true; }
+
+    headers.forEach(h => { h.classList.remove("sorted"); h.querySelector(".sort-arrow").textContent = "↕"; });
+    th.classList.add("sorted");
+    th.querySelector(".sort-arrow").textContent = sortAsc ? "↑" : "↓";
+    render();
+  });
+});
+
+// ── Search ─────────────────────────────────────────────────────────────────
+searchEl.addEventListener("input", () => { query = searchEl.value; render(); });
+
+// ── Class filter ───────────────────────────────────────────────────────────
+filterWrap.addEventListener("click", e => {
+  const btn = e.target.closest(".pill");
+  if (!btn) return;
+  filterWrap.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+  activeClass = btn.dataset.class;
+  render();
+});
+
+// ── Tab switching ──────────────────────────────────────────────────────────
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+// ── Language.md renderer ────────────────────────────────────────────────────
+// Tokens that look like language forms in italics but are abstract notation —
+// skip the script rendering for these.
+const SKIP_SCRIPT = new Set([
+  'C', 'V', 'CV', 'CVC', 'VC', 'SVO', 'SOV', '-iC', 'w', 'y', 'iy', 'yi',
+]);
+
+function slugify(t) {
+  return t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+// Turn an <em> node (rendered by marked from *italic*) into a dual latin+script
+// form. `skipScript` forces latin-only for an entire section (the phonology
+// section is all abstract notation, so it never shows script).
+function decorateLangForms(root, skipScript) {
+  root.querySelectorAll('em').forEach(em => {
+    const text = em.textContent;
+    // Only full words get a script form. Affixes and declensions are marked by a
+    // leading or trailing dash, and abstract notation is listed in SKIP_SCRIPT.
+    const isAffix = /^-|-$/.test(text);
+    const span = document.createElement('span');
+    span.className = 'lang-form';
+    if (skipScript || isAffix || SKIP_SCRIPT.has(text) || text === '') {
+      span.innerHTML = `<span class="lat">${escHtml(text)}</span>`;
+    } else {
+      span.innerHTML = `<span class="lat">${escHtml(text)}</span><span class="scr">${escHtml(text)}</span>`;
+    }
+    em.replaceWith(span);
+  });
+}
+
+// Build an in-page table of contents from the <h3>/<h4> headings in a section.
+// Gives each heading an id and returns a <nav> of anchor links (or null if none).
+function buildSectionToc(el, sectionSlug) {
+  const headings = [...el.querySelectorAll('h3, h4')];
+  if (headings.length === 0) return null;
+
+  const toc = document.createElement('nav');
+  toc.className = 'grammar-toc';
+  headings.forEach(h => {
+    const hid = 'g-' + sectionSlug + '-' + slugify(h.textContent);
+    h.id = hid;
+    const a = document.createElement('a');
+    a.href = '#' + hid;
+    a.textContent = h.textContent;
+    a.className = h.tagName === 'H4' ? 'toc-sub' : '';
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    toc.appendChild(a);
+  });
+  return toc;
+}
+
+// Build the grammar nav + content from Language.md.
+// `marked` parses the markdown; we split the result into sections at each <h2>.
+function renderGrammar(languageMd) {
+  const nav     = document.getElementById('grammar-nav');
+  const content = document.getElementById('grammar-content');
+  nav.innerHTML = '';
+  content.innerHTML = '';
+
+  const parsed = document.createElement('div');
+  parsed.innerHTML = marked.parse(languageMd);
+
+  // Group top-level nodes into sections, starting at each <h2>.
+  const sections = [];
+  let current = null;
+  parsed.childNodes.forEach(node => {
+    if (node.nodeType === 1 && node.tagName === 'H2') {
+      const title = node.textContent.trim();
+      current = { title, slug: slugify(title), nodes: [node] };
+      sections.push(current);
+    } else if (current) {
+      current.nodes.push(node);
+    }
+    // nodes before the first <h2> (the # title) are ignored
+  });
+
+  sections.forEach((sec, idx) => {
+    // Nav button
+    const btn = document.createElement('button');
+    btn.className = 'grammar-nav-item' + (idx === 0 ? ' active' : '');
+    btn.dataset.section = sec.slug;
+    btn.textContent = sec.title;
+    nav.appendChild(btn);
+
+    // Section
+    const el = document.createElement('section');
+    el.className = 'grammar-section' + (idx === 0 ? ' active' : '');
+    el.id = 'gsec-' + sec.slug;
+    sec.nodes.forEach(n => el.appendChild(n));
+    decorateLangForms(el, sec.slug === 'phonology');
+
+    // In-page table of contents, inserted right after the section's <h2>.
+    const toc = buildSectionToc(el, sec.slug);
+    if (toc) {
+      const h2 = el.querySelector('h2');
+      h2.after(toc);
+    }
+    content.appendChild(el);
+  });
+
+  // Wire nav clicks
+  nav.querySelectorAll('.grammar-nav-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      nav.querySelectorAll('.grammar-nav-item').forEach(b => b.classList.remove('active'));
+      content.querySelectorAll('.grammar-section').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('gsec-' + btn.dataset.section).classList.add('active');
+    });
+  });
+}
+
+// ── Bootstrap ──────────────────────────────────────────────────────────────
+(async () => {
+  const [glossaryText, languageText] = await Promise.all([
+    fetch('Glossary.md').then(r => r.text()),
+    fetch('Language.md').then(r => r.text()),
+  ]);
+  GLOSSARY = parseGlossaryMd(glossaryText);
+  buildFilters();
+  render();
+  renderGrammar(languageText);
+})();
+</script>
+</body>
+</html>
