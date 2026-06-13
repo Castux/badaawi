@@ -63,6 +63,22 @@ function escHtml(s) {
   return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
+// Render the plural-root cell, checking the listed root against the one derived
+// by the declension rule (decline.js) and exposing the verdict as a hover tip.
+function pluralCell(word, plural, q) {
+  if (!plural) return "";
+  const inner = `<span class="latin">${hl(plural, q)}</span><span class="script">${plural}</span>`;
+
+  const reg = Declension.pluralRegularity(word, plural);
+  const tip = reg.status === "regular"
+    ? "Regular — matches the derived plural root"
+    : reg.status === "irregular"
+      ? "Irregular — rule derives “" + reg.computed + "”"
+      : "Cannot derive — rule undefined for this form";
+
+  return `<span class="plural-cell ${reg.status}" data-tip="${escHtml(tip)}">${inner}</span>`;
+}
+
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {
   const q = query.toLowerCase().trim();
@@ -97,7 +113,7 @@ function render() {
       </td>
       <td class="class">${escHtml(r[1])}</td>
       <td class="translation">${hl(r[2], q)}</td>
-      <td class="plural">${r[3] ? `<span class="latin">${hl(r[3], q)}</span><span class="script">${r[3]}</span>` : ''}</td>
+      <td class="plural">${pluralCell(r[0], r[3], q)}</td>
       <td class="notes">${escHtml(r[4])}</td>
     </tr>
   `).join("");

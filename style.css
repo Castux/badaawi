@@ -306,6 +306,47 @@ td.plural .script {
   margin-top: 0.1rem;
 }
 
+/* Plural-root regularity indicator + hover tip (verdict from decline.js) */
+.plural-cell {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  padding-right: 0.85em;
+}
+
+/* Dot keyed to the verdict: regular (sea), irregular (accent), unknown (faint) */
+.plural-cell::before {
+  content: "";
+  position: absolute;
+  top: 0.3em; right: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.plural-cell.regular::before   { background: var(--sea-light); }
+.plural-cell.irregular::before { background: var(--accent); }
+.plural-cell.unknown::before   { background: var(--ink-faint); }
+
+.plural-cell:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 0;
+  z-index: 20;
+  width: max-content;
+  max-width: 260px;
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  box-shadow: 0 4px 16px rgba(42,33,24,0.3);
+  pointer-events: none;
+}
+
 td.class {
   font-family: var(--font-mono);
   font-size: 0.78rem;
