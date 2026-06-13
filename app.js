@@ -108,7 +108,7 @@ function render() {
   bodyEl.innerHTML = rows.map(r => {
     const inflect = Declension.isInflectable(r[0], r[1]);
     return `
-    <tr${inflect ? ` class="inflect" data-word="${escHtml(r[0])}"` : ""}>
+    <tr${inflect ? ` class="inflect" data-idx="${GLOSSARY.indexOf(r)}"` : ""}>
       <td class="word">
         <span class="word-line">
           <span class="latin">${hl(r[0], q)}</span>
@@ -182,8 +182,8 @@ function renderSection(sec) {
     </div>`;
 }
 
-function openForms(word) {
-  const row = GLOSSARY.find(r => r[0] === word);
+function openForms(idx) {
+  const row = GLOSSARY[idx];
   if (!row) return;
   const para = Declension.paradigm(row[0], row[1], row[3]);
   if (!para) return;
@@ -211,7 +211,7 @@ function closeForms() {
 
 bodyEl.addEventListener("click", e => {
   const tr = e.target.closest("tr.inflect");
-  if (tr) openForms(tr.dataset.word);
+  if (tr) openForms(Number(tr.dataset.idx));
 });
 formsCloseEl.addEventListener("click", closeForms);
 formsOverlay.addEventListener("click", e => { if (e.target === formsOverlay) closeForms(); });

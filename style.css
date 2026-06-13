@@ -259,7 +259,7 @@ tbody tr:nth-child(even):hover { background: #EDE4D3; }
 
 td {
   padding: 0.6rem 1rem;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 td.word {

@@ -35,12 +35,14 @@
 | badaawizim    | n        | desert person                   | badawiwiizmi    |       |
 | bakhaamdif    | n, adj   | motion, moving                  | bakhamiidfi     |       |
 | bakhi         | n        | wind                            | bayiikh         |       |
+| bakhi         | n        | relative clause marker          | bakhi           |       |
 | bakhmad       | v        | to move                         | bakhaamdi       |       |
 | bakhmizim     | n        | nomad                           | bakhmiwiizmi    |       |
 | bij           | pro      | you                             | iibji           |       |
 | birshad       | v        | to cradle, to lull              | biraashdi       |       |
-| birsharuf     | n        | lullaby                         | birshakuuurfi   |       |
+| birsharuf     | n        | lullaby                         | birshakhuurfi   |       |
 | birshi        | n        | cradle, crib                    | biriish         |       |
+| biwib         | n        | question marker                 | biwiifbi        |       |
 | dala          | n        | land, expanse                   | dawaal          |       |
 | dar           | pre      | by                              |                 |       |
 | dunijad       | v        | to change, to transform (tr.)   | duniyaajdi      |       |
