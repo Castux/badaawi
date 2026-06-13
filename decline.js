@@ -192,10 +192,12 @@
     const participles = {
       title: "Participles",
       note: "The passive past participle applies only to transitive verbs.",
+      // Passive pair first so they share a row; the lone active present then
+      // starts a fresh row instead of being orphaned beside a passive form.
       rows: [
-        { label: "Active present", form: sx(pl, "f") },
         { label: "Passive past · sing.", form: stem + "n" },
         { label: "Passive past · plur.", form: sx(pl, "n") },
+        { label: "Active present", form: sx(pl, "f") },
       ],
     };
     return [tenses, participles];
