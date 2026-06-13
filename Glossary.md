@@ -116,7 +116,7 @@
 | wasib         | n        | scholar, wise person, advisor   | wayiisbi        |       |
 | wasibbi       | n        | school                          | wasibiib        |       |
 | wazda         | adj      | ochre, dark yellow              | wazaad          |       |
-| wid           | pre      | time marker                     |                 |       |
+| wid           | pre      | time marker (during, at, when)  |                 |       |
 | wusub         | n        | witch, sorcerer                 | wukhuusbi       |       |
 | yashwi        | n        | hand                            | yashiif         |       |
 | zif           | pro      | he/she/it (animate)             | iizfi           |       |

@@ -765,3 +765,261 @@ em, i { color: var(--sea); font-style: italic; }
   .grammar-content { padding: 1.2rem; }
   .grid-2 { grid-template-columns: 1fr; }
 }
+
+/* ── Workshop tab ── */
+.workshop-tool {
+  border: 1px solid var(--dust);
+  border-top: 3px solid var(--copper);
+  border-radius: 2px;
+  background: var(--parchment);
+  padding: 1.5rem 1.8rem 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.workshop-h {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 0.4rem;
+}
+
+.workshop-lead {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  max-width: 60ch;
+}
+
+.workshop-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.workshop-controls label {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+#gen-count, .fam-input {
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid var(--dust);
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+#gen-count { width: 5.5rem; }
+.fam-input { flex: 1 1 160px; }
+#gen-count:focus, .fam-input:focus { border-color: var(--sea); }
+.fam-input::placeholder { color: var(--ink-faint); }
+
+.workshop-btn {
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border: 1.5px solid var(--sea);
+  background: var(--sea);
+  color: var(--parchment);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+.workshop-btn:hover { background: var(--sea-light); border-color: var(--sea-light); }
+
+/* Generated-word grid */
+.word-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.word-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--dust);
+  background: var(--sand);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.word-chip:hover { border-color: var(--copper); background: #EDE4D3; transform: translateY(-1px); }
+
+.word-chip .lat {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--sea);
+}
+.word-chip .scr {
+  font-family: var(--font-script);
+  font-feature-settings: "liga" 1;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  color: var(--copper);
+}
+
+/* Family results */
+.fam-results { margin-top: 0.5rem; }
+
+.fam-warn {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.fam-root {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1rem;
+}
+.fam-root span { color: var(--copper); font-size: 0.85rem; letter-spacing: 0.12em; }
+
+.fam-group { margin-bottom: 1.5rem; }
+.fam-group:last-child { margin-bottom: 0; }
+
+.fam-group h4 {
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sea);
+  border-bottom: 1px solid var(--dust);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+.fam-group-note {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-faint);
+  margin-left: 0.5rem;
+}
+
+.fam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.fam-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "word tag" "gloss gloss";
+  align-items: baseline;
+  gap: 0.1rem 0.6rem;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--dust);
+  background: var(--sand);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.fam-item:hover { border-color: var(--copper); background: #EDE4D3; transform: translateY(-1px); }
+
+.fam-item-word { grid-area: word; display: inline-flex; align-items: baseline; gap: 0.5rem; }
+.fam-item-word .lat {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--sea);
+}
+.fam-item-word .scr {
+  font-family: var(--font-script);
+  font-feature-settings: "liga" 1;
+  font-size: 1.3rem;
+  color: var(--copper);
+}
+
+.fam-item-tag {
+  grid-area: tag;
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.fam-item-gloss {
+  grid-area: gloss;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* English-side family (Datamuse) */
+.fam-english { margin-top: 0.3rem; }
+
+.fam-loading {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.fam-en-group {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: baseline;
+  gap: 0.4rem 0.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.fam-en-rel {
+  font-family: var(--font-display);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: right;
+  padding-top: 0.2rem;
+}
+
+.fam-en-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.en-chip {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--dust);
+  background: var(--sand);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.en-chip:hover { border-color: var(--sea); background: var(--sea); color: var(--parchment); }
+
+@media (max-width: 520px) {
+  .workshop-tool { padding: 1.2rem 1.1rem 1.4rem; }
+  .fam-grid { grid-template-columns: 1fr; }
+  .fam-en-group { grid-template-columns: 1fr; gap: 0.2rem; }
+  .fam-en-rel { text-align: left; }
+}

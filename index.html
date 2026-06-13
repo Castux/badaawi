@@ -21,6 +21,7 @@
     <nav class="tabs" role="tablist">
       <button class="tab-btn active" role="tab" data-tab="glossary">Glossary</button>
       <button class="tab-btn" role="tab" data-tab="grammar">Grammar</button>
+      <button class="tab-btn" role="tab" data-tab="workshop" id="tab-workshop" hidden>Workshop</button>
     </nav>
   </div>
 </header>
@@ -65,6 +66,33 @@
     </div>
   </div><!-- /panel-grammar -->
 
+  <!-- ── WORKSHOP PANEL (hidden unless ?lab) ── -->
+  <div id="panel-workshop" class="tab-panel" role="tabpanel">
+
+    <div class="workshop-tool">
+      <h3 class="workshop-h">Generate words</h3>
+      <p class="workshop-lead">Phonotactically legal coinings — every one parses as a valid word. Click any to seed a family below.</p>
+      <div class="workshop-controls">
+        <label for="gen-count">How many</label>
+        <input type="number" id="gen-count" min="1" max="500" value="30" inputmode="numeric">
+        <button id="gen-btn" class="workshop-btn">Generate ▸</button>
+      </div>
+      <div id="gen-results" class="word-grid"></div>
+    </div>
+
+    <div class="workshop-tool">
+      <h3 class="workshop-h">Semantic family</h3>
+      <p class="workshop-lead">Give a word a meaning and grow its kin — regular affixes, same-root re-vowellings, and drifted sound-shift doublets.</p>
+      <div class="workshop-controls">
+        <input type="text" id="fam-word" class="fam-input" placeholder="word (e.g. zura)" autocomplete="off" spellcheck="false">
+        <input type="text" id="fam-meaning" class="fam-input" placeholder="meaning (e.g. fire)" autocomplete="off" spellcheck="false">
+        <button id="fam-btn" class="workshop-btn">Suggest ▸</button>
+      </div>
+      <div id="fam-results" class="fam-results"></div>
+    </div>
+
+  </div><!-- /panel-workshop -->
+
 </main>
 
 <!-- ── DECLENSION MODAL ── -->
@@ -84,6 +112,9 @@
 
 <script src="marked.min.js"></script>
 <script src="decline.js"></script>
+<script src="generator.js"></script>
+<script src="semantics.js"></script>
 <script src="app.js"></script>
+<script src="workshop.js"></script>
 </body>
 </html>
