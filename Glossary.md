@@ -38,8 +38,8 @@
 | bakhmad       | v        | to move                         | bakhaamdi       |       |
 | bakhmizim     | n        | nomad                           | bakhmiwiizmi    |       |
 | bij           | pro      | you                             | iibji           |       |
-| birshad       | v        | to cradle, to lull              |                 |       |
-| birsharuf     | n        | lullaby                         |                 |       |
+| birshad       | v        | to cradle, to lull              | biraashdi       |       |
+| birsharuf     | n        | lullaby                         | birshakuuurfi   |       |
 | birshi        | n        | cradle, crib                    | biriish         |       |
 | dala          | n        | land, expanse                   | dawaal          |       |
 | dar           | pre      | by                              |                 |       |
@@ -101,7 +101,7 @@
 | ushad         | v        | to break                        | uwaashdi        |       |
 | ushud         | n        | rift, canyon, break             | ukhuushdi       |       |
 | uwaadi        | n        | flying sand, dust               | uwayiid         |       |
-| uwaadij       | a        | dusty                           | uwayiidji       |       |
+| uwaadij       | adj      | dusty                           | uwayiidji       |       |
 | uzal          | n        | grain, speck                    | uwaazli         |       |
 | uzali         | adj      | small, tiny, unimportant        | uzayiil         |       |
 | uzazrizim     | n        | non believer, apostate          | uzazriwiizmi    |       |

@@ -136,7 +136,134 @@
     return { status: computed === listedPlural ? "regular" : "irregular", computed };
   }
 
-  const api = { parseWord, pluralRoot, pluralRegularity };
+  // ── Inflected-form generation ──────────────────────────────────────────────
+  // All paradigms below take the *listed* plural root from the glossary, which
+  // is authoritative and may override the regular formation rule. A null plural
+  // root means none was recorded, so plural-based forms cannot be built.
+
+  // Strip the final consonant of a word (handling the kh/sh digraphs as one C).
+  // This is the singular-present stem of a verb and the passive-participle stem.
+  function stripFinalC(word) {
+    if (word.endsWith("kh") || word.endsWith("sh")) return word.slice(0, -2);
+    return word.slice(0, -1);
+  }
+
+  // Append the object marker, harmonizing with the last syllable's vowel:
+  //   ends in a vowel     -> -rV   (V = that vowel, shortened)
+  //   ends in a consonant -> -Vr   (V = the last syllable's vowel, shortened)
+  function withObject(form) {
+    const w = parseWord(form);
+    if (!w || !w.length) return null;
+    const last = w[w.length - 1];
+    let vowel = null;
+    for (const seg of last) if (isVowel(seg)) vowel = toShort(seg);
+    if (vowel === null) return null;
+    return isVowel(last[last.length - 1]) ? form + "r" + vowel : form + vowel + "r";
+  }
+
+  // Noun / adjective declension (singular + plural, each with an object form).
+  function declineNominal(word, listedPlural) {
+    const rows = [
+      { label: "Singular", form: word },
+      { label: "Singular · object", form: withObject(word) },
+      { label: "Plural", form: listedPlural || null },
+      { label: "Plural · object", form: listedPlural ? withObject(listedPlural) : null },
+    ];
+    return { title: "Declension", rows };
+  }
+
+  // Verb conjugation: present/perfect/future in both numbers, plus participles.
+  function conjugateVerb(word, listedPlural) {
+    const stem = stripFinalC(word);                 // singular present stem
+    const pl = listedPlural || null;                // plural stem = plural root
+    const sx = (base, s) => (base ? base + s : null);
+
+    const tenses = {
+      title: "Conjugation",
+      rows: [
+        { label: "Present · sing.", form: stem },
+        { label: "Present · plur.", form: pl },
+        { label: "Perfect · sing.", form: stem + "wa" },
+        { label: "Perfect · plur.", form: sx(pl, "wa") },
+        { label: "Future · sing.", form: stem + "lish" },
+        { label: "Future · plur.", form: sx(pl, "lish") },
+      ],
+    };
+    const participles = {
+      title: "Participles",
+      note: "The passive past participle applies only to transitive verbs.",
+      rows: [
+        { label: "Active present", form: sx(pl, "f") },
+        { label: "Passive past · sing.", form: stem + "n" },
+        { label: "Passive past · plur.", form: sx(pl, "n") },
+      ],
+    };
+    return [tenses, participles];
+  }
+
+  // Irregular personal-pronoun paradigms, transcribed from Language.md. Keyed by
+  // the singular subject form (the glossary's dictionary entry).
+  const PRONOUNS = {
+    ishi: { person: "1st person",
+      sing: { subj: "ishi", obj: "ishir", poss: "isha" },
+      plur: { subj: "iwiish", obj: "iwiishir", poss: "iwiisha" } },
+    bij: { person: "2nd person",
+      sing: { subj: "bij", obj: "bijir", poss: "bisha" },
+      plur: { subj: "iibji", obj: "iibjir", poss: "iibsha" } },
+    zif: { person: "3rd person · animate",
+      sing: { subj: "zif", obj: "zifir", poss: "zifaj" },
+      plur: { subj: "iizfi", obj: "iizfir", poss: "iizfij" } },
+    aba: { person: "3rd person · inanimate",
+      sing: { subj: "aba", obj: "abar", poss: "abaj" },
+      plur: { subj: "awaab", obj: "awaabar", poss: "awaabaj" } },
+  };
+
+  function declinePronoun(word) {
+    const p = PRONOUNS[word];
+    if (!p) return null;
+    const block = (n) => ({
+      title: n === "sing" ? "Singular" : "Plural",
+      rows: [
+        { label: "Subject", form: p[n].subj },
+        { label: "Object", form: p[n].obj },
+        { label: "Possessive", form: p[n].poss },
+      ],
+    });
+    return { person: p.person, sections: [block("sing"), block("plur")] };
+  }
+
+  // Top-level entry: returns { kind, note?, sections: [{title, note?, rows}] } for
+  // a glossary entry, or null if the entry has no generable paradigm. `klass` is
+  // the glossary class string (e.g. "n, adj" or "pre, n"); a word may yield more
+  // than one section (e.g. an entry that is both a verb and a noun).
+  function paradigm(word, klass, listedPlural) {
+    const classes = (klass || "").split(/,\s*/).map(c => c.trim()).filter(Boolean);
+
+    if (classes.includes("pro")) {
+      const pro = declinePronoun(word);
+      if (!pro) return null;
+      return { kind: "pronoun", note: "Personal pronouns are irregular.", sections: pro.sections, sub: pro.person };
+    }
+
+    const sections = [];
+    if (classes.includes("v")) sections.push(...conjugateVerb(word, listedPlural));
+    if (classes.includes("n") || classes.includes("adj")) sections.push(declineNominal(word, listedPlural));
+
+    if (!sections.length) return null;
+    return { kind: "regular", sections };
+  }
+
+  // True when the entry has a paradigm worth showing (so the UI can mark it).
+  function isInflectable(word, klass) {
+    const classes = (klass || "").split(/,\s*/).map(c => c.trim());
+    if (classes.includes("pro")) return !!PRONOUNS[word];
+    return classes.includes("v") || classes.includes("n") || classes.includes("adj");
+  }
+
+  const api = {
+    parseWord, pluralRoot, pluralRegularity,
+    withObject, paradigm, isInflectable,
+  };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   if (typeof window !== "undefined") window.Declension = api;
 })();

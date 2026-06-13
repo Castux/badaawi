@@ -318,7 +318,8 @@ td.plural .script {
 .plural-cell::before {
   content: "";
   position: absolute;
-  top: 0.3em; right: 0;
+  top: 50%; right: 0;
+  transform: translateY(-50%);
   width: 6px; height: 6px;
   border-radius: 50%;
 }
@@ -415,6 +416,170 @@ td .lang-form .scr {
   color: var(--ink-faint);
   font-style: italic;
   font-size: 0.95rem;
+}
+
+/* Inflectable rows open the declension modal on click */
+tbody tr.inflect { cursor: pointer; }
+
+/* The hint floats just right of the word on the same baseline (absolute, so it
+   adds neither height nor width — the row never reflows on hover). */
+td.word .word-line { position: relative; display: inline-block; }
+
+.forms-hint {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.55rem;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  opacity: 0;
+  transition: opacity 0.12s;
+  pointer-events: none;
+}
+tbody tr.inflect:hover .forms-hint { opacity: 1; }
+
+/* ── Declension / conjugation modal ── */
+body.modal-open { overflow: hidden; }
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(42,33,24,0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4vh 1rem;
+  overflow-y: auto;
+}
+.modal-overlay[hidden] { display: none; }
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  background: var(--sand);
+  border: 1px solid var(--dust);
+  border-top: 3px solid var(--copper);
+  border-radius: 3px;
+  box-shadow: 0 18px 50px rgba(42,33,24,0.4);
+  padding: 1.8rem 2rem 2.2rem;
+  animation: modal-in 0.16s ease-out;
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem; right: 0.8rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.modal-close:hover { color: var(--accent); }
+
+.modal-head {
+  border-bottom: 1.5px solid var(--dust);
+  padding-bottom: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.modal-word .latin {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--sea);
+}
+.modal-word .script {
+  display: block;
+  font-family: var(--font-script);
+  font-feature-settings: "liga" 1;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: var(--copper);
+  margin-top: 0.1rem;
+}
+
+.modal-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  margin-top: 0.5rem;
+}
+
+.form-section { margin-bottom: 1.5rem; }
+.form-section:last-child { margin-bottom: 0; }
+
+.form-section h4 {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 0.6rem;
+}
+
+.form-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 0.7rem;
+}
+.form-note-top { margin-top: -0.4rem; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--parchment);
+}
+
+.form-label {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.1rem;
+}
+
+.form-val .lat {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--sea);
+  margin-right: 0.6rem;
+}
+.form-val .scr {
+  font-family: var(--font-script);
+  font-feature-settings: "liga" 1;
+  font-size: 1.5rem;
+  color: var(--copper);
+  vertical-align: middle;
+}
+.form-na { color: var(--ink-faint); font-family: var(--font-mono); }
+
+@media (max-width: 520px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .modal { padding: 1.5rem 1.3rem 1.8rem; }
 }
 
 /* ── Grammar tab ── */

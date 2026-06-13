@@ -105,18 +105,23 @@ function render() {
     return;
   }
 
-  bodyEl.innerHTML = rows.map(r => `
-    <tr>
+  bodyEl.innerHTML = rows.map(r => {
+    const inflect = Declension.isInflectable(r[0], r[1]);
+    return `
+    <tr${inflect ? ` class="inflect" data-word="${escHtml(r[0])}"` : ""}>
       <td class="word">
-        <span class="latin">${hl(r[0], q)}</span>
-        <span class="script">${r[0]}</span>
+        <span class="word-line">
+          <span class="latin">${hl(r[0], q)}</span>
+          <span class="script">${r[0]}</span>
+          ${inflect ? `<span class="forms-hint">forms ▸</span>` : ""}
+        </span>
       </td>
       <td class="class">${escHtml(r[1])}</td>
       <td class="translation">${hl(r[2], q)}</td>
       <td class="plural">${pluralCell(r[0], r[3], q)}</td>
       <td class="notes">${escHtml(r[4])}</td>
-    </tr>
-  `).join("");
+    </tr>`;
+  }).join("");
 }
 
 // ── Sort headers ───────────────────────────────────────────────────────────
@@ -147,6 +152,70 @@ filterWrap.addEventListener("click", e => {
   activeClass = btn.dataset.class;
   render();
 });
+
+// ── Declension / conjugation modal ───────────────────────────────────────────
+const formsOverlay     = document.getElementById("forms-overlay");
+const formsBodyEl      = document.getElementById("forms-body");
+const formsWordEl      = document.getElementById("forms-word");
+const formsWordScrEl   = document.getElementById("forms-word-script");
+const formsSubEl       = document.getElementById("forms-sub");
+const formsCloseEl     = document.getElementById("forms-close");
+
+// One generated form: latin + script, or an em dash when it can't be formed
+// (e.g. a plural-based form for an entry with no recorded plural root).
+function formVal(form) {
+  if (!form) return `<span class="form-na" title="not recorded">—</span>`;
+  return `<span class="lat">${escHtml(form)}</span><span class="scr">${escHtml(form)}</span>`;
+}
+
+function renderSection(sec) {
+  const rows = sec.rows.map(r => `
+      <div class="form-row">
+        <div class="form-label">${escHtml(r.label)}</div>
+        <div class="form-val">${formVal(r.form)}</div>
+      </div>`).join("");
+  return `
+    <div class="form-section">
+      <h4>${escHtml(sec.title)}</h4>
+      ${sec.note ? `<p class="form-note">${escHtml(sec.note)}</p>` : ""}
+      <div class="form-grid">${rows}</div>
+    </div>`;
+}
+
+function openForms(word) {
+  const row = GLOSSARY.find(r => r[0] === word);
+  if (!row) return;
+  const para = Declension.paradigm(row[0], row[1], row[3]);
+  if (!para) return;
+
+  formsWordEl.textContent = row[0];
+  formsWordScrEl.textContent = row[0];
+  const bits = [row[2], row[1]].filter(Boolean);
+  if (para.sub) bits.push(para.sub);
+  formsSubEl.textContent = bits.join("   ·   ");
+
+  let html = "";
+  if (para.note) html += `<p class="form-note form-note-top">${escHtml(para.note)}</p>`;
+  html += para.sections.map(renderSection).join("");
+  formsBodyEl.innerHTML = html;
+
+  formsOverlay.hidden = false;
+  document.body.classList.add("modal-open");
+  formsCloseEl.focus();
+}
+
+function closeForms() {
+  formsOverlay.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+bodyEl.addEventListener("click", e => {
+  const tr = e.target.closest("tr.inflect");
+  if (tr) openForms(tr.dataset.word);
+});
+formsCloseEl.addEventListener("click", closeForms);
+formsOverlay.addEventListener("click", e => { if (e.target === formsOverlay) closeForms(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !formsOverlay.hidden) closeForms(); });
 
 // ── Tab switching ──────────────────────────────────────────────────────────
 document.querySelectorAll(".tab-btn").forEach(btn => {
