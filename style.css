@@ -710,7 +710,6 @@ em, i { color: var(--sea); font-style: italic; }
 }
 
 .grammar-section td:first-child {
-  font-family: var(--font-mono);
   color: var(--sea);
   font-size: 0.82rem;
 }

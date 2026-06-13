@@ -50,11 +50,11 @@ There are no diphthongs. When a root change would put two vowels together, a con
 2. else before an *u* comes *kh*
 3. otherwise it is *w*
 
-|    -> | a   | u    | i   |
-|------:|:----|:-----|:----|
-| **a** | awa | akhu | ayi |
-| **u** | uwa | ukhu | uyi |
-| **i** | iya | iyu  | iwi |
+|       | *-a*  | *-u*   | *-i*  |
+|:------|:------|:-------|:------|
+| *a-*  | *awa* | *akhu* | *ayi* |
+| *u-*  | *uwa* | *ukhu* | *uyi* |
+| *i-*  | *iya* | *iyu*  | *iwi* |
 
 Since *w* and *y* cannot appear at the end of a syllable or word, if a root change would do so, they reduce to:
 
