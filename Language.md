@@ -156,14 +156,14 @@ The first verb group (most common) is *-ad*, the second is *-iC*, and the third 
 
 There are three main tenses: present (actions going on at the time of speech, or timeless), perfect (actions completed or in the past), and unreal (future actions, uncertainty, conditional, wishes, etc.)
 
-In the singular, verbs lose their final consonant to form the present. In plural, the plural root is used instead. Perfect is then formed by adding *-wa*, and the unreal tense by adding *-lish*.
+In the singular, verbs lose their final consonant to form the present. In plural, the plural root is used instead. Perfect is then formed by adding *-wa*, and the unreal tense by adding *-li*.
 
 | Verb group   | Present     | Perfect             | Unreal                |
 |:-------------|:------------|:--------------------|:----------------------|
-| *-ad*, sing. | *-a*        | *-awa*              | *-alish*              |
-| *-ad*, plu.  | plural root | plural root + *-wa* | plural root + *-lish* |
-| *-iC*, sing. | *-i*        | *-iwa*              | *-ilish*              |
-| *-iC*, plu.  | plural root | plural root + *-wa* | plural root + *-lish* |
+| *-ad*, sing. | *-a*        | *-awa*              | *-ali*                |
+| *-ad*, plu.  | plural root | plural root + *-wa* | plural root + *-li*   |
+| *-iC*, sing. | *-i*        | *-iwa*              | *-ili*                |
+| *-iC*, plu.  | plural root | plural root + *-wa* | plural root + *-li*   |
 
 Verbs are always in the active voice, except when using the past participle.
 
@@ -171,10 +171,10 @@ Verbs are always in the active voice, except when using the past participle.
 
 Two irregular (third-group) verbs have the meaning of to be, depending on whether the state is temporary or permanent:
 
-- *fiya*: current state, location, or temporary condition. Singular *fi*, plural *izif* (perfect *fiwa*/*izifwa*, unreal *filish*/*iziflish*).
-- *shuda*: identity or inherent characteristic. Singular *shu*, plural *ushuq* (perfect *shuwa*/*ushuqwa*, unreal *shulish*/*ushuqlish*).
+- *fiya*: current state, location, or temporary condition. Singular *fi*, plural *izif* (perfect *fiwa*/*izifwa*, unreal *fili*/*izifli*).
+- *shuda*: identity or inherent characteristic. Singular *shu*, plural *ushuq* (perfect *shuwa*/*ushuqwa*, unreal *shuli*/*ushuqli*).
 
-Both are irregular: singular and plural root do not derive from the infinitive, though *-wa* (perfect) and *-lish* (unreal) attach as usual.
+Both are irregular: singular and plural root do not derive from the infinitive, though *-wa* (perfect) and *-li* (unreal) attach as usual.
 
 - *a mazdi fi mi a badaawi*: The camel is in the desert.
 - *a alzura shu zula*: The sun is primordial.
@@ -212,8 +212,8 @@ For the second person, an injunction told to the person talked to, the verb in i
 
 The unreal tense can be used for any person, by implying a subordinate clause for "I wish", or "Would that", with or without the conjunction *daz*:
 
-- *irshuwi irilish*: Let rain fall (lit. "rain will/would fall")
-- *daz iwiish ushuqlish ayiizli*: Let us be free (lit. "that we would be free")  
+- *irshuwi irili*: Let rain fall (lit. "rain will/would fall")
+- *daz iwiish ushuqli ayiizli*: Let us be free (lit. "that we would be free")  
 
 ### Sentence construction
 
@@ -254,7 +254,7 @@ Similarly, relative clauses can be introduced with the relative pronoun *bashi*,
 They are introduced by verbs like "wish" "say", for which the object of the action is a whole clause. They start with the conjunction *daz* (that). Those that represent uncertain actions are in the unreal tense.
 
 - *zif shabawa daz bij ufsubawa zifir*: She said that you cursed her!
-- *ishi salish daz zif suwilish*: I wish he loved me. (lit: I would want that he loves)
+- *ishi sali daz zif suwili*: I wish he loved me. (lit: I would want that he loves)
 
 ## Lexicon
 
@@ -272,7 +272,7 @@ Some common word constructions:
 
 ## Phrases
 
-*ashli shawaadfi ayiizmi zawaandin ayiizli wa dawaanshi fid zalaf wa ushab. ladun wa zalim mawaardin na iizfir. iizfi rayiizfilish misif khuyiidir fid alladum az aruzinwi.*
+*ashli shawaadfi ayiizmi zawaandin ayiizli wa dawaanshi fid zalaf wa ushab. ladun wa zalim mawaardin na iizfir. iizfi rayiizfili misif khuyiidir fid alladum az aruzinwi.*
 
 lit: All humans beings were born free and equal with worth and right. Mind and conscience were granted to them. They would act towards others with a mentality of brotherhood.
 

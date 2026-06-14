@@ -188,12 +188,12 @@
   // rather than derived from a single root, so they're listed wholesale.
   const IRREGULAR_VERBS = {
     fiya: {
-      sing: { present: "fi", perfect: "fiwa", unreal: "filish" },
-      plur: { present: "izif", perfect: "izifwa", unreal: "iziflish" },
+      sing: { present: "fi", perfect: "fiwa", unreal: "fili" },
+      plur: { present: "izif", perfect: "izifwa", unreal: "izifli" },
     },
     shuda: {
-      sing: { present: "shu", perfect: "shuwa", unreal: "shulish" },
-      plur: { present: "ushuq", perfect: "ushuqwa", unreal: "ushuqlish" },
+      sing: { present: "shu", perfect: "shuwa", unreal: "shuli" },
+      plur: { present: "ushuq", perfect: "ushuqwa", unreal: "ushuqli" },
     },
   };
 
@@ -227,8 +227,8 @@
         { label: "Present · plur.", form: pl },
         { label: "Perfect · sing.", form: stem + "wa" },
         { label: "Perfect · plur.", form: sx(pl, "wa") },
-        { label: "Unreal · sing.", form: stem + "lish" },
-        { label: "Unreal · plur.", form: sx(pl, "lish") },
+        { label: "Unreal · sing.", form: stem + "li" },
+        { label: "Unreal · plur.", form: sx(pl, "li") },
       ],
     };
     const participles = {
