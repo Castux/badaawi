@@ -396,6 +396,13 @@ mark {
   line-height: 1.15;
 }
 
+/* Affix-only forms (no script counterpart) are just italic text — render
+   them inline and baseline-aligned so they sit level with the surrounding line. */
+.lang-form:not(:has(.scr)) {
+  display: inline;
+  vertical-align: baseline;
+}
+
 /* In table cells, stay inline so forms flow with adjacent text
    (e.g. "-ad, sing." in the verbs table) instead of breaking to a new line. */
 td .lang-form {
@@ -647,6 +654,8 @@ body.modal-open { overflow: hidden; }
 
 .grammar-content {
   padding: 2rem 2.2rem;
+  min-width: 0;
+  overflow-x: auto;
 }
 
 .grammar-section + .grammar-section {
@@ -691,13 +700,16 @@ body.modal-open { overflow: hidden; }
   font-size: 0.92rem;
 }
 
-.grammar-section ul {
+.grammar-section ul,
+.grammar-section ol {
   margin: 0.4rem 0 0.9rem 1.2rem;
   color: var(--ink-soft);
   font-size: 0.9rem;
+  font-family: var(--font-body);
 }
 
-.grammar-section ul li { margin-bottom: 0.25rem; }
+.grammar-section ul li,
+.grammar-section ol li { margin-bottom: 0.25rem; }
 
 em, i { color: var(--sea); font-style: italic; }
 
