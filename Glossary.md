@@ -40,7 +40,7 @@
 | bashi         | n        | relative clause marker                 | bayiish         |                                            |
 | bakhmad       | v        | to move, to flow, to blow (intr.)      | bakhaamdi       |                                            |
 | bakhmizim     | n        | nomad                                  | bakhmiwiizmi    |                                            |
-| bij           | pro      | you                                    | iibji           |                                            |
+| bij           | pro      | you (singular)                         | iibji           |                                            |
 | birshad       | v        | to cradle, to lull (tr.)               | biraashdi       |                                            |
 | birsharuf     | n        | lullaby                                | birshakhuurfi   |                                            |
 | birshi        | n        | cradle, crib                           | biriish         |                                            |
@@ -124,10 +124,22 @@
 | wid           | pre      | time marker (during, at, when)         |                 |                                            |
 | wusub         | n        | witch, sorcerer                        | wukhuusbi       |                                            |
 | yashwi        | n        | hand                                   | yashiif         |                                            |
-| zif           | pro      | he/she/it (animate)                    | iizfi           |                                            |
+| zif           | pro      | he, she, it (animate)                  | iizfi           |                                            |
 | zula          | n, adj   | first, primordial                      | zuwaal          |                                            |
 | zura          | n        | fire                                   | zuwaar          |                                            |
 | zuruf         | adj      | hot                                    | zukhuurfi       |                                            |
 | zuwir         | n        | heat                                   | zuyiifri        |                                            |
 | zalzi         | n        | heart                                  | zaliiz          |                                            |
 | ib            | pre      | to, into (destination, transformation) |                 |                                            |
+| iwiish        | pro      | we                                     |                 |                                            |
+| iibji         | pro      | you (plural)                           |                 |                                            |
+| iibsha        | pro      | your, yours (plural)                   |                 |                                            |
+| iizfi         | pro      | they (animate)                         |                 |                                            |
+| awaab         | pro      | they (inanimate)                       |                 |                                            |
+| isha          | pro      | my, mine                               |                 |                                            |
+| iwiisha       | pro      | our, ours                              |                 |                                            |
+| bisha         | pro      | your, yours (singular)                 |                 |                                            |
+| zifaj         | pro      | his, her, hers, its (animate)          |                 |                                            |
+| iizfij        | pro      | their, theirs (animate)                |                 |                                            |
+| abaj          | pro      | its (inanimate)                        |                 |                                            |
+| awaabaj       | pro      | their, theirs (inanimate)              |                 |                                            |

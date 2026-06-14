@@ -237,8 +237,20 @@
       plur: { subj: "awaab", obj: "awaabar", poss: "awaabaj" } },
   };
 
+  // Reverse lookup: any subject/object/possessive form, singular or plural,
+  // maps back to its PRONOUNS entry — so the glossary row for e.g. *iwiish*
+  // (we) or *isha* (my/mine) opens the same full paradigm as *ishi* (I).
+  const PRONOUN_FORMS = {};
+  for (const [key, p] of Object.entries(PRONOUNS)) {
+    for (const n of ['sing', 'plur']) {
+      for (const form of Object.values(p[n])) {
+        if (!(form in PRONOUN_FORMS)) PRONOUN_FORMS[form] = key;
+      }
+    }
+  }
+
   function declinePronoun(word) {
-    const p = PRONOUNS[word];
+    const p = PRONOUNS[PRONOUN_FORMS[word]];
     if (!p) return null;
     const block = (n) => ({
       title: n === "sing" ? "Singular" : "Plural",
@@ -275,7 +287,7 @@
   // True when the entry has a paradigm worth showing (so the UI can mark it).
   function isInflectable(word, klass) {
     const classes = (klass || "").split(/,\s*/).map(c => c.trim());
-    if (classes.includes("pro")) return !!PRONOUNS[word];
+    if (classes.includes("pro")) return word in PRONOUN_FORMS;
     return classes.includes("v") || classes.includes("n") || classes.includes("adj");
   }
 

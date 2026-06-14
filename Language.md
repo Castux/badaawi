@@ -109,7 +109,7 @@ Adjectives normally come after the noun they qualify and agree with the noun the
 
 The plural forms are regular and use the plural roots of the singular ones. There is no gender distinction, but the third person has two forms: animate (people and things that move by themselves), and inanimate (dead people and static things).
 
-The object forms are used as usual for direct and indirect objects. Possessives function as either adjectives (placed after the noun they qualify) or nouns. Possessives agree in number and animatedness with the possessor.
+The object forms are used as usual for direct and indirect objects. Possessives function as either adjectives (placed after the noun they qualify) or nouns. Possessives agree in number and animatedness with the possessor, and are otherwise invariable.
 
 Note: the object forms are irregular.
 
