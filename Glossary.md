@@ -160,13 +160,13 @@
 | razif         | v        | to act, to behave (intr.)                              | rayiizfi        |                                                                                             |
 | rayiizfi      | n        | act, action, behavior                                  | rayiziif        |                                                                                             |
 | aruzinwi      | n        | brotherhood                                            | aruziniif       |                                                                                             |
-| fiya          | v        | to be (state, location, condition)                     | izif            | Irregular: present sing. fi, plur. izif; perfect fiwa/izifwa; future filish/iziflish.       |
-| shuda         | v        | to be (identity, inherent quality)                     | ushuq           | Irregular: present sing. shu, plur. ushuq; perfect shuwa/ushuqwa; future shulish/ushuqlish. |
+| fiya          | v        | to be (state, location, condition)                     | izif            | Irregular: present sing. fi, plur. izif; perfect fiwa/izifwa; unreal filish/iziflish.       |
+| shuda         | v        | to be (identity, inherent quality)                     | ushuq           | Irregular: present sing. shu, plur. ushuq; perfect shuwa/ushuqwa; unreal shulish/ushuqlish. |
 | khuudi        | n, adj   | other                                                  | khuyiid         |                                                                                             |
 | shadar        | n        | existence                                              | shawaadri       |                                                                                             |
 | shadaf        | n        | being, creature                                        | shawaadfi       |                                                                                             |
 | zalij         | adj      | good, moral (of a person)                              | zayiilji        |                                                                                             |
-| sad           | v        | to want, to desire, to wish (tr.)                      | aasdi           | In conditional, has the meaning "to wish"                                                   |
+| sad           | v        | to want, to desire, to wish (tr.)                      | aasdi           | In the unreal tense, has the meaning "to wish"                                              |
 | suwi          | n        | love                                                   | uuswi           |                                                                                             |
 | suwif         | v        | to love (tr.)                                          | suufi           |                                                                                             |
 | daz           | conj     | that (starts subordinate clause)                       |                 |                                                                                             |

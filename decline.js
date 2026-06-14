@@ -184,16 +184,16 @@
     return /\(tr\.\/intr\.\)/.test(translation || "");
   }
 
-  // Third-group (irregular) verbs: present/perfect/future stems are suppletive
+  // Third-group (irregular) verbs: present/perfect/unreal stems are suppletive
   // rather than derived from a single root, so they're listed wholesale.
   const IRREGULAR_VERBS = {
     fiya: {
-      sing: { present: "fi", perfect: "fiwa", future: "filish" },
-      plur: { present: "izif", perfect: "izifwa", future: "iziflish" },
+      sing: { present: "fi", perfect: "fiwa", unreal: "filish" },
+      plur: { present: "izif", perfect: "izifwa", unreal: "iziflish" },
     },
     shuda: {
-      sing: { present: "shu", perfect: "shuwa", future: "shulish" },
-      plur: { present: "ushuq", perfect: "ushuqwa", future: "ushuqlish" },
+      sing: { present: "shu", perfect: "shuwa", unreal: "shulish" },
+      plur: { present: "ushuq", perfect: "ushuqwa", unreal: "ushuqlish" },
     },
   };
 
@@ -208,13 +208,13 @@
         { label: "Present · plur.", form: v.plur.present },
         { label: "Perfect · sing.", form: v.sing.perfect },
         { label: "Perfect · plur.", form: v.plur.perfect },
-        { label: "Future · sing.", form: v.sing.future },
-        { label: "Future · plur.", form: v.plur.future },
+        { label: "Unreal · sing.", form: v.sing.unreal },
+        { label: "Unreal · plur.", form: v.plur.unreal },
       ],
     }];
   }
 
-  // Verb conjugation: present/perfect/future in both numbers, plus participles.
+  // Verb conjugation: present/perfect/unreal in both numbers, plus participles.
   function conjugateVerb(word, listedPlural, translation) {
     const stem = stripFinalC(word);                 // singular present stem
     const pl = listedPlural || null;                // plural stem = plural root
@@ -227,8 +227,8 @@
         { label: "Present · plur.", form: pl },
         { label: "Perfect · sing.", form: stem + "wa" },
         { label: "Perfect · plur.", form: sx(pl, "wa") },
-        { label: "Future · sing.", form: stem + "lish" },
-        { label: "Future · plur.", form: sx(pl, "lish") },
+        { label: "Unreal · sing.", form: stem + "lish" },
+        { label: "Unreal · plur.", form: sx(pl, "lish") },
       ],
     };
     const participles = {
