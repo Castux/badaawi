@@ -290,7 +290,7 @@ All human beings are born free and equal in dignity and rights. They are endowed
 
 *rawaan idayiin*
 
-*ishi mazadwa nawaamdif suwinir isha* \
+*ishi mazawa nawaamdif suwinir isha* \
 *sayiiz zifaj lawaamdi dana idayiin* \
 *rawaandif daz ishi yasali shiyaamar liyaanar az qayiid* \
 *jila adis rayiiq uwaashdin* \
@@ -299,7 +299,7 @@ All human beings are born free and equal in dignity and rights. They are endowed
 *uzwa shayiib zifaj ushuqwa duqa* \
 *suwin isha dasawa ishir mi firaz* \
 *ishi firza daz uz ashli bayiish lawaamdi ushuq zaba* \
-*ishi mazadwa nawaamdif suwinir isha* \
+*ishi mazawa nawaamdif suwinir isha* \
 *fid ufiid bayiish lawaamdi dana idayiin*
 
 Hopes are stars

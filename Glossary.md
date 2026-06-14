@@ -176,7 +176,7 @@
 | duqa          | n        | steel, iron, hard metal                                | duwaaq          |                                                                                         |
 | firaz         | n        | doubt, uncertainty, guess                              | fiyaarzi        |                                                                                         |
 | firzad        | v        | to guess, to doubt, to wonder (tr./intr.)              | firaazdi        |                                                                                         |
-| jila          | n        | leather, hide                                          | jiwiil          |                                                                                         |
+| jila          | n        | leather, hide                                          | jiyaal          |                                                                                         |
 | lamad         | v        | to shine, to glitter, to sparkle (intr.)               | lawaamdi        |                                                                                         |
 | lina          | adj      | soft, gentle, tender                                   | liyaan          |                                                                                         |
 | namad         | v        | to seek, to look for, to find (tr.)                    | nawaamdi        |                                                                                         |
