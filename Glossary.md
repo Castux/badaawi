@@ -49,7 +49,7 @@
 | dunijad       | v        | to change, to transform (tr.)          | duniyaajdi      |                                            |
 | faja          | pre      | down, below                            |                 |                                            |
 | fashmi        | adj      | green                                  | fashiim         |                                            |
-| furad         | v        | to burn (tr.)                          | fuwaardi        |                                            |
+| furad         | v        | to burn (tr./intr.)                    | fuwaardi        |                                            |
 | furbakh       | n        | smoke                                  | furaabkhi       |                                            |
 | idani         | n        | star                                   | idayiin         |                                            |
 | il            | n        | comfort, safety                        |                 |                                            |
@@ -76,6 +76,7 @@
 | lifashli      | n        | eternity                               | lifashiil       |                                            |
 | maasha        | n        | branch, crossroad                      | mawaash         |                                            |
 | maruf         | n        | music                                  | makhuurfi       |                                            |
+| marufiq       | v        | to play music (tr./intr.)              | maruyiifqi      |                                            |
 | marwan        | n        | stone                                  | maraafni        |                                            |
 | mazad         | v        | to travel, to take the road (intr.)    | mawaazdi        |                                            |
 | mazdi         | n        | camel                                  | maziid          |                                            |

@@ -81,22 +81,26 @@ In an word consisting of a single initial syllable without an opening consonant 
 
 ### Nouns/adjectives
 
-Exist in singular and plural form. Plural form is simply the plural root.
+They exist in singular and plural form. Plural form is simply the plural root.
 
 They take an object marker when they are the direct or indirect object in the sentence, which harmonizes with the vowel in the last syllable:
 
 - After a vowel V: *-rV*
 - After a consonant: VC: *-Vr*
 
+- *a mazdi siwaa akhshara*: The camel drinks dirty water.
+- *a alzuwir fura maziidir iwiisha*: The desert heat burns our camels.
+- *ishi marufi misif mazdiri isha*: I play music for my camel.
+
 Adjectives normally come after the noun they qualify and have the same object marker if present.
 
-A noun appearing without article is indefinite. The definite article *a* (the) comes before the noun it qualifies.
+A noun appearing without article is indefinite. The definite article *a* (the) comes before the noun it qualifies. *a* is often omitted with possessive pronouns or when there is no ambiguity.
 
 ### Personal pronouns
 
 The plural forms are regular and use the plural roots of the singular ones. There is no gender distinction, but the third person has two forms: animate (people and things that move by themselves), and inanimate (dead people and static things).
 
-The object forms are used as usual for direct and indirect objects. Possessives function as either adjectives (placed after the noun they qualify) or nouns.
+The object forms are used as usual for direct and indirect objects. Possessives function as either adjectives (placed after the noun they qualify) or nouns. Possessives agree in number and animatedness with the possessor.
 
 Note: the object forms are irregular.
 
