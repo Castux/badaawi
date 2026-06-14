@@ -158,12 +158,29 @@ In the singular, verbs lose their final consonant to form the present. In plural
 
 Verbs are always in the active voice, except when using the past participle.
 
+#### "To be"
+
+Two irregular (third-group) verbs have the meaning of to be, depending on whether the state is temporary or permanent:
+
+- *fiya*: current state, location, or temporary condition. Singular *fi*, plural *izif* (perfect *fiwa*/*izifwa*, future *filish*/*iziflish*).
+- *shuda*: identity or inherent characteristic. Singular *shu*, plural *ushuq* (perfect *shuwa*/*ushuqwa*, future *shulish*/*ushuqlish*).
+
+Both are irregular: singular and plural root do not derive from the infinitive, though *-wa* (perfect) and *-lish* (future) attach as usual.
+
+- *a mazdi fi mi a badaawi*: The camel is in the desert.
+- *a alzura shu zula*: The sun is primordial.
+
+Both are often omitted in spoken language or informal settings, when there is no ambiguity.
+
+- *ishi mi a azaarbi*: I'm in the temple.
+- *azaar ali*: God is great.
 
 #### Participles
 
-The active present participle is: plural root + *-f*, regardless of number. It can act as an adjective, the pivot in a relative clause or a noun (the act related to that verb).
+The active present participle is: plural root + *-f*, regardless of number. It can act as an adjective, the pivot in a relative clause or a noun (the act related to that verb). It can be used to emphasize an action going on.
 
 - *a mazdi siyaafdif*: the drinking camel
+- *a mazdi fi siyaafdif*: The camel is drinking.
 - *adifi iyaazdif ilwiri zifaj iza a badaawiri*: A son serving his family serves the desert.
 - *mawaazdif usha ayiizmiri*: Travelling breaks people.
 

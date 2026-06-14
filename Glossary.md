@@ -159,4 +159,6 @@
 | razif         | v        | to act, to behave (intr.)              | rayiizfi        |                                            |
 | rayiizfi      | n        | act, action, behavior                  | rayiziif        |                                            |
 | aruzinwi      | n        | brotherhood                            | aruziniif       |                                            |
+| fiya          | v        | to be (state, location, condition)     | izif            | Irregular: present sing. *fi*, plur. *izif*; perfect *fiwa*/*izifwa*; future *filish*/*iziflish*. |
+| shuda         | v        | to be (identity, inherent quality)     | ushuq           | Irregular: present sing. *shu*, plur. *ushuq*; perfect *shuwa*/*ushuqwa*; future *shulish*/*ushuqlish*. |
 | khuudi        | n, adj   | other                                  | khuyiid         |                                            |

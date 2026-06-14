@@ -184,6 +184,36 @@
     return /\(tr\.\/intr\.\)/.test(translation || "");
   }
 
+  // Third-group (irregular) verbs: present/perfect/future stems are suppletive
+  // rather than derived from a single root, so they're listed wholesale.
+  const IRREGULAR_VERBS = {
+    fiya: {
+      sing: { present: "fi", perfect: "fiwa", future: "filish" },
+      plur: { present: "izif", perfect: "izifwa", future: "iziflish" },
+    },
+    shuda: {
+      sing: { present: "shu", perfect: "shuwa", future: "shulish" },
+      plur: { present: "ushuq", perfect: "ushuqwa", future: "ushuqlish" },
+    },
+  };
+
+  function conjugateIrregularVerb(word) {
+    const v = IRREGULAR_VERBS[word];
+    if (!v) return null;
+    return [{
+      title: "Conjugation",
+      note: "Irregular verb: the singular and plural stems are suppletive.",
+      rows: [
+        { label: "Present · sing.", form: v.sing.present },
+        { label: "Present · plur.", form: v.plur.present },
+        { label: "Perfect · sing.", form: v.sing.perfect },
+        { label: "Perfect · plur.", form: v.plur.perfect },
+        { label: "Future · sing.", form: v.sing.future },
+        { label: "Future · plur.", form: v.plur.future },
+      ],
+    }];
+  }
+
   // Verb conjugation: present/perfect/future in both numbers, plus participles.
   function conjugateVerb(word, listedPlural, translation) {
     const stem = stripFinalC(word);                 // singular present stem
@@ -277,7 +307,11 @@
     }
 
     const sections = [];
-    if (classes.includes("v")) sections.push(...conjugateVerb(word, listedPlural, translation));
+    if (classes.includes("v")) {
+      sections.push(...(IRREGULAR_VERBS[word]
+        ? conjugateIrregularVerb(word)
+        : conjugateVerb(word, listedPlural, translation)));
+    }
     if (classes.includes("n") || classes.includes("adj")) sections.push(declineNominal(word, listedPlural));
 
     if (!sections.length) return null;
