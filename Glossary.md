@@ -20,7 +20,8 @@
 | alzuraj       | n        | sunny, bright, warm, sun-like          | alzuwaarji      | Mostly euphemistically applied to a person |
 | alzuwir       | n        | sunfire, desert heat                   | alzuyiifri      |                                            |
 | aruzin        | n        | brother                                | aruyiizni       |                                            |
-| ashli         | adj, n   | all, whole, entirety                   | ashiil          |                                            |
+| ashli         | pre      | all, all of                            |                 |                                            |
+| ashli         | adj, n   | whole, entire, entirety                | ashiil          |                                            |
 | awali         | n        | daughter                               | awayiil         |                                            |
 | az            | pre      | of                                     |                 |                                            |
 | azaar         | n        | god                                    | awaazri         |                                            |
@@ -37,7 +38,7 @@
 | bakhaamdif    | n, adj   | motion, moving                         | bakhamiidfi     |                                            |
 | bakhi         | n        | wind                                   | bayiikh         |                                            |
 | bashi         | n        | relative clause marker                 | bayiish         |                                            |
-| bakhmad       | v        | to move (intr.)                        | bakhaamdi       |                                            |
+| bakhmad       | v        | to move, to flow, to blow (intr.)      | bakhaamdi       |                                            |
 | bakhmizim     | n        | nomad                                  | bakhmiwiizmi    |                                            |
 | bij           | pro      | you                                    | iibji           |                                            |
 | birshad       | v        | to cradle, to lull (tr.)               | biraashdi       |                                            |

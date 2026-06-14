@@ -229,9 +229,11 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 
 // ── Language.md renderer ────────────────────────────────────────────────────
 // Tokens that look like language forms in italics but are abstract notation —
-// skip the script rendering for these.
+// skip the script rendering for these (multi-letter notation only; single
+// letters/digraphs are caught generically by length below).
 const SKIP_SCRIPT = new Set([
-  'C', 'V', 'CV', 'CVC', 'VC', 'SVO', 'SOV', '-iC', 'w', 'y', 'iy', 'yi',
+  'C', 'V', 'CV', 'CVC', 'VC', 'SVO', 'SOV', '-iC', 'iy', 'yi', 'kh', 'sh',
+  'awa', 'akhu', 'ayi', 'uwa', 'ukhu', 'uyi', 'iya', 'iyu', 'iwi',
 ]);
 
 function slugify(t) {
@@ -239,17 +241,17 @@ function slugify(t) {
 }
 
 // Turn an <em> node (rendered by marked from *italic*) into a dual latin+script
-// form. `skipScript` forces latin-only for an entire section (the phonology
-// section is all abstract notation, so it never shows script).
-function decorateLangForms(root, skipScript) {
+// form, or latin-only for single letters, affixes, and abstract notation.
+function decorateLangForms(root) {
   root.querySelectorAll('em').forEach(em => {
     const text = em.textContent;
     // Only full words get a script form. Affixes and declensions are marked by a
-    // leading or trailing dash, and abstract notation is listed in SKIP_SCRIPT.
+    // leading or trailing dash, single phonemes are one or two letters, and
+    // other abstract notation is listed in SKIP_SCRIPT.
     const isAffix = /^-|-$/.test(text);
     const span = document.createElement('span');
     span.className = 'lang-form';
-    if (skipScript || isAffix || SKIP_SCRIPT.has(text) || text === '') {
+    if (isAffix || SKIP_SCRIPT.has(text) || text.length <= 1 || text === '') {
       span.innerHTML = `<span class="lat">${escHtml(text)}</span>`;
     } else {
       span.innerHTML = `<span class="lat">${escHtml(text)}</span><span class="scr">${escHtml(text)}</span>`;
@@ -291,7 +293,7 @@ function renderGrammar(languageMd) {
     el.className = 'grammar-section';
     el.id = 'gsec-' + sec.slug;
     sec.nodes.forEach(n => el.appendChild(n));
-    decorateLangForms(el, sec.slug === 'phonology');
+    decorateLangForms(el);
     content.appendChild(el);
 
     // Nav: top-level entry for the section itself…

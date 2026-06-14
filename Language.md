@@ -11,12 +11,12 @@
 | Labial | Alveolar | Palatal    | Velar/Uvular |
 |:-------|:---------|:-----------|:-------------|
 | m      | n        |            |              |
-|        |          |            | q            |
-| b      | d        | ʒ ~ d͡ʒ (j) |              |
+| b      | d        |            | q            |
+|        |          | ʒ ~ d͡ʒ (j) |              |
 | f      | s        | ʃ (sh)     | x ~ χ (kh)   |
 |        | z        |            |              |
 |        | r        |            |              |
-|        | l        | j (y)      | w            |
+| w      | l        | j (y)      |              |
 
 ### Vowels
 
@@ -26,7 +26,7 @@
 
 ### Long vowels
 
-A word can have either zero or a single long vowel. Some grammatical constructs add or shift a long vowel forward in the word.
+A word can have either zero or a single long vowel. Some grammatical constructs (most notably the plural root) add or shift a long vowel forward in the word.
 
 Vowels following the long vowel tend to pronounced short and close to a shwa.
 
@@ -61,7 +61,9 @@ Since *w* and *y* cannot appear at the end of a syllable or word, if a root chan
 - *w* → *f*
 - *y* → *q*
 
-Though not a strict phonological constraint, *y* rarely follows a consonant. Most accents pronounce, and indeed write, *iy* instead.
+Though not a strict phonological constraint, *y* rarely follows a consonant. Most accents pronounce *iy* instead. In written forms, the difference is a single diacritic:
+
+- *dalya* vs. *daliya*
 
 ### Plural root change
 
@@ -72,7 +74,11 @@ Nouns, adjectives and verbs have a singular root (the basic dictionary form) and
 
 This can cause the apparition of the linking consonant and reduction of a final semivowel.
 
-In an word consisting of a single initial syllable without an opening consonant (these might not exist):
+- *adifi* (son), *adiwiif* (sons)
+- *badaa* (sand), *bawaad* (sands)
+- *iyaazdif* (service), *iyaziidfi* (services)
+
+In an word consisting of a single initial syllable without an opening consonant (these might not exist, TBD):
 
 - Open initial: V -> ???
 - Closed initial: VC -> ???
@@ -83,6 +89,8 @@ In an word consisting of a single initial syllable without an opening consonant 
 
 They exist in singular and plural form. Plural form is simply the plural root.
 
+A noun appearing without article is indefinite. The definite article *a* (the) comes before the noun it qualifies. *a* is often omitted with possessive pronouns or when there is no ambiguity.
+
 They take an object marker when they are the direct or indirect object in the sentence, which harmonizes with the vowel in the last syllable:
 
 - After a vowel V: *-rV*
@@ -92,9 +100,10 @@ They take an object marker when they are the direct or indirect object in the se
 - *a alzuwir fura maziidir iwiisha*: The desert heat burns our camels.
 - *ishi marufi misif mazdiri isha*: I play music for my camel.
 
-Adjectives normally come after the noun they qualify and have the same object marker if present.
+Adjectives normally come after the noun they qualify and agree with the noun they qualify in number and object marker.
 
-A noun appearing without article is indefinite. The definite article *a* (the) comes before the noun it qualifies. *a* is often omitted with possessive pronouns or when there is no ambiguity.
+- *a udar fashmi bakhma*: The Green River flows.
+- *ishi azaara a udarar fashmiri*: I worship the Green River.
 
 ### Personal pronouns
 
@@ -118,14 +127,15 @@ Note: the object forms are irregular.
 ### Prepositions
 
 - *az*: of (possession, provenance, material)
-- *mi*: location, in, inside
+- *mi*: in, inside of
 - *uzmi*: outside of
-- *ib*: to, towards, destination (location) / into (transformative case)
+- *ib*: to, towards, into (location) / into (transformative case)
+- ??: at (location near or around, not enclosed)
 - *wid*: time indicator (at the moment of)
 - *dar*: from (location, person) / by, because of (agent of passive clause, source or cause, tool or method, etc.)
-- *na* : indirect object marker (usually to)
-- *misif*: for (beneficiary of the action, purpose, intention)
-- **: at (location near or around, not enclosed)
+- *na* + object marker: to (generic indirect object marker, recipient)
+- *misif* + object marker: for (beneficiary of the action, purpose, intention)
+- *ashli*: all, all of (countable or uncountable)
 
 ### Verbs
 
