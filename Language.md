@@ -215,6 +215,13 @@ The unreal tense can be used for any person, by implying a subordinate clause fo
 - *irshuwi irili*: Let rain fall (lit. "rain will/would fall")
 - *daz iwiish ushuqli ayiizli*: Let us be free (lit. "that we would be free")  
 
+### Adverbs
+
+Adverbs are not a separate word class. To qualify an action, use *fid* and a noun (with) or add an adjective to the subject of the action when context is clear.
+ 
+- *a mazdi siwaawa ashli siwaara fid dakhba*: THe camel quickly drank all the water (lit: with speed).
+- *a mazdi dakhbaj siwaawa ashli siwaara*: The quick camel drank all the water.
+
 ### Sentence construction
 
 #### Word order
