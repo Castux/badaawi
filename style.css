@@ -728,6 +728,10 @@ em, i { color: var(--sea); font-style: italic; }
   font-size: 0.82rem;
 }
 
+.grammar-section table tr:last-child td {
+  border-bottom: none;
+}
+
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
