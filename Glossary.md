@@ -167,7 +167,7 @@
 | shadaf        | n        | being, creature                                        | shawaadfi       |                                                                                         |
 | zalij         | adj      | good, moral (of a person)                              | zayiilji        |                                                                                         |
 | sad           | v        | to want, to desire, to wish (tr.)                      | aasdi           | In the unreal tense, has the meaning "to wish"                                          |
-| suwi          | n        | love                                                   | uuswi           |                                                                                         |
+| suwi          | n        | love                                                   | suyiif           |                                                                                         |
 | suwif         | v        | to love (tr.)                                          | suufi           |                                                                                         |
 | daz           | conj     | that (starts subordinate clause)                       |                 |                                                                                         |
 | dakhba        | n        | speed                                                  | dakhaab         |                                                                                         |
