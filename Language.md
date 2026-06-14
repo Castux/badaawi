@@ -224,3 +224,11 @@ Some common word constructions:
 - *al-*: large, great
 - *az-*: in family names, indicate provenance
 - *-m*: device, construction, object
+
+## Phrases
+
+*ashli ayiizmi zawaandin ayiizli wa dawaanshi fid zalaf wa ushab. ladun wa zalim mawaardin na iizfir. iizfi rayiizfilish misif khuyiidir  fid alladum az aruzinwi.*
+
+lit: All humans were born free and equal with worth and right. Mind and conscience were granted to them. They would act towards others with a mentality of brotherhood.
+
+All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.

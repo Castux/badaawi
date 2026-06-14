@@ -143,3 +143,20 @@
 | iizfij        | pro      | their, theirs (animate)                |                 |                                            |
 | abaj          | pro      | its (inanimate)                        |                 |                                            |
 | awaabaj       | pro      | their, theirs (inanimate)              |                 |                                            |
+| wa            | conj     | and                                    |                 |                                            |
+| fid           | pre      | with (accompaniment, manner)           |                 |                                            |
+| zanad         | v        | to bear, to give birth to (tr.)        | zawaandi        |                                            |
+| azil          | adj      | free                                   | ayiizli         |                                            |
+| dana          | conj     | like                                   |                 |                                            |
+| danash        | adj      | equal, alike                           | dawaanshi       |                                            |
+| zalaf         | n        | dignity, worth                         | zawaalfi        |                                            |
+| ushab         | n        | right, entitlement, due                | uwaashbi        |                                            |
+| marad         | v        | to endow, to grant (tr.)               | mawaardi        |                                            |
+| ladun         | n        | reason, mind, intellect                | lakhuudni       |                                            |
+| ladad         | v        | to think                               | lawaaddi        |                                            |
+| alladum       | n        | mindset, way of thinking, mentality    | allakhuudmi     |                                            |
+| zalim         | n        | conscience, moral sense, heart         | zayiilmi        |                                            |
+| razif         | v        | to act, to behave (intr.)              | rayiizfi        |                                            |
+| rayiizfi      | n        | act, action, behavior                  | rayiziif        |                                            |
+| aruzinwi      | n        | brotherhood                            | aruziniif       |                                            |
+| khuudi        | n, adj   | other                                  | khuyiid         |                                            |
