@@ -258,32 +258,10 @@ function decorateLangForms(root, skipScript) {
   });
 }
 
-// Build an in-page table of contents from the <h3>/<h4> headings in a section.
-// Gives each heading an id and returns a <nav> of anchor links (or null if none).
-function buildSectionToc(el, sectionSlug) {
-  const headings = [...el.querySelectorAll('h3, h4')];
-  if (headings.length === 0) return null;
-
-  const toc = document.createElement('nav');
-  toc.className = 'grammar-toc';
-  headings.forEach(h => {
-    const hid = 'g-' + sectionSlug + '-' + slugify(h.textContent);
-    h.id = hid;
-    const a = document.createElement('a');
-    a.href = '#' + hid;
-    a.textContent = h.textContent;
-    a.className = h.tagName === 'H4' ? 'toc-sub' : '';
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      h.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-    toc.appendChild(a);
-  });
-  return toc;
-}
-
 // Build the grammar nav + content from Language.md.
-// `marked` parses the markdown; we split the result into sections at each <h2>.
+// `marked` parses the markdown; we split the result into sections at each <h2>,
+// render every section onto a single scrollable page, and build a nav containing
+// every heading level (h2/h3/h4) as anchor links into that page.
 function renderGrammar(languageMd) {
   const nav     = document.getElementById('grammar-nav');
   const content = document.getElementById('grammar-content');
@@ -307,39 +285,59 @@ function renderGrammar(languageMd) {
     // nodes before the first <h2> (the # title) are ignored
   });
 
-  sections.forEach((sec, idx) => {
-    // Nav button
-    const btn = document.createElement('button');
-    btn.className = 'grammar-nav-item' + (idx === 0 ? ' active' : '');
-    btn.dataset.section = sec.slug;
-    btn.textContent = sec.title;
-    nav.appendChild(btn);
-
-    // Section
+  sections.forEach(sec => {
+    // Section content
     const el = document.createElement('section');
-    el.className = 'grammar-section' + (idx === 0 ? ' active' : '');
+    el.className = 'grammar-section';
     el.id = 'gsec-' + sec.slug;
     sec.nodes.forEach(n => el.appendChild(n));
     decorateLangForms(el, sec.slug === 'phonology');
-
-    // In-page table of contents, inserted right after the section's <h2>.
-    const toc = buildSectionToc(el, sec.slug);
-    if (toc) {
-      const h2 = el.querySelector('h2');
-      h2.after(toc);
-    }
     content.appendChild(el);
+
+    // Nav: top-level entry for the section itself…
+    const navGroup = document.createElement('div');
+    navGroup.className = 'grammar-nav-group';
+    const topLink = document.createElement('a');
+    topLink.className = 'grammar-nav-item';
+    topLink.href = '#' + el.id;
+    topLink.textContent = sec.title;
+    navGroup.appendChild(topLink);
+
+    // …plus nested entries for every h3/h4 inside it.
+    el.querySelectorAll('h3, h4').forEach(h => {
+      const hid = 'g-' + sec.slug + '-' + slugify(h.textContent);
+      h.id = hid;
+      const a = document.createElement('a');
+      a.href = '#' + hid;
+      a.textContent = h.textContent;
+      a.className = 'grammar-nav-sub' + (h.tagName === 'H4' ? ' grammar-nav-sub2' : '');
+      navGroup.appendChild(a);
+    });
+
+    nav.appendChild(navGroup);
   });
 
-  // Wire nav clicks
-  nav.querySelectorAll('.grammar-nav-item').forEach(btn => {
-    btn.addEventListener('click', () => {
-      nav.querySelectorAll('.grammar-nav-item').forEach(b => b.classList.remove('active'));
-      content.querySelectorAll('.grammar-section').forEach(s => s.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('gsec-' + btn.dataset.section).classList.add('active');
+  // Smooth-scroll for all nav links, and highlight the current section on scroll.
+  const navLinks = [...nav.querySelectorAll('a')];
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const link = nav.querySelector(`a[href="#${entry.target.id}"]`);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '0px 0px -70% 0px', threshold: 0 });
+
+  content.querySelectorAll('section.grammar-section, h3, h4').forEach(el => observer.observe(el));
 }
 
 // ── Bootstrap ──────────────────────────────────────────────────────────────

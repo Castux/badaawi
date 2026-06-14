@@ -589,86 +589,100 @@ body.modal-open { overflow: hidden; }
   gap: 0;
   border: 1px solid var(--dust);
   border-radius: 2px;
-  min-height: 600px;
+  align-items: start;
 }
 
 .grammar-nav {
   background: var(--sea);
   padding: 1.5rem 0;
   border-right: none;
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
 }
 
-.grammar-nav-item {
+.grammar-nav-group + .grammar-nav-group {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.grammar-nav-item,
+.grammar-nav-sub {
   display: block;
   width: 100%;
   text-align: left;
-  padding: 0.6rem 1.4rem;
   font-family: var(--font-display);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--dust);
+  text-decoration: none;
+  color: var(--parchment);
   background: none;
   border: none;
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
-.grammar-nav-item:hover { background: rgba(255,255,255,0.08); color: var(--parchment); }
-.grammar-nav-item.active { color: var(--parchment); border-left-color: var(--copper); background: rgba(255,255,255,0.1); }
+
+.grammar-nav-item {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--parchment);
+}
+
+.grammar-nav-sub {
+  padding: 0.35rem 1.4rem 0.35rem 2rem;
+  font-size: 0.61rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dust);
+}
+
+.grammar-nav-sub2 { padding-left: 2.8rem; }
+
+.grammar-nav-item:hover, .grammar-nav-sub:hover { background: rgba(255,255,255,0.08); color: var(--parchment); }
+.grammar-nav-item.active, .grammar-nav-sub.active { color: var(--copper-dim); border-left-color: var(--copper); background: rgba(255,255,255,0.1); }
 
 .grammar-content {
   padding: 2rem 2.2rem;
-  overflow-y: auto;
 }
 
-.grammar-section { display: none; }
-.grammar-section.active { display: block; }
+.grammar-section + .grammar-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--dust);
+}
 
 .grammar-section h2 {
   font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--sea);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-bottom: 1.5px solid var(--dust);
-  padding-bottom: 0.5rem;
   margin-bottom: 1.2rem;
 }
 
-.grammar-toc {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  background: var(--parchment);
-  border-left: 3px solid var(--copper);
-  padding: 0.7rem 1rem;
-  margin: 0 0 1.5rem;
-  border-radius: 0 2px 2px 0;
-}
-
-.grammar-toc a {
-  font-family: var(--font-display);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-decoration: none;
-  padding: 0.15rem 0;
-  transition: color 0.15s;
-}
-.grammar-toc a:hover { color: var(--copper); }
-.grammar-toc a.toc-sub { padding-left: 1rem; font-size: 0.58rem; color: var(--ink-faint); }
-
 .grammar-section h3 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--copper);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 1.4rem 0 0.5rem;
+}
+
+.grammar-section h4 {
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--copper);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin: 1.4rem 0 0.5rem;
+  margin: 1.2rem 0 0.5rem;
 }
 
 .grammar-section p {
@@ -758,9 +772,9 @@ em, i { color: var(--sea); font-style: italic; }
 
 @media (max-width: 640px) {
   .grammar-grid { grid-template-columns: 1fr; }
-  .grammar-nav { padding: 0.5rem 0; border-right: none; border-bottom: 1px solid var(--dust); display: flex; flex-wrap: wrap; }
-  .grammar-nav-item { border-left: none; border-bottom: 3px solid transparent; padding: 0.5rem 0.9rem; }
-  .grammar-nav-item.active { border-bottom-color: var(--copper); border-left-color: transparent; }
+  .grammar-nav { padding: 0.5rem 0; border-right: none; border-bottom: 1px solid var(--dust); position: static; max-height: none; }
+  .grammar-nav-item, .grammar-nav-sub { border-left: none; }
+  .grammar-nav-item.active, .grammar-nav-sub.active { border-left-color: transparent; background: rgba(255,255,255,0.1); }
   .grammar-content { padding: 1.2rem; }
   .grid-2 { grid-template-columns: 1fr; }
 }
