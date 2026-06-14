@@ -172,8 +172,20 @@
     return { title: "Declension", rows };
   }
 
+  // True when the glossary translation marks the verb as intransitive-only,
+  // i.e. contains "(intr.)" but not the combined "(tr./intr.)" form.
+  function isIntransitiveOnly(translation) {
+    return /\(intr\.\)/.test(translation || "");
+  }
+
+  // True when the glossary translation marks the verb as both transitive and
+  // intransitive, i.e. "(tr./intr.)".
+  function isBothTransitivity(translation) {
+    return /\(tr\.\/intr\.\)/.test(translation || "");
+  }
+
   // Verb conjugation: present/perfect/future in both numbers, plus participles.
-  function conjugateVerb(word, listedPlural) {
+  function conjugateVerb(word, listedPlural, translation) {
     const stem = stripFinalC(word);                 // singular present stem
     const pl = listedPlural || null;                // plural stem = plural root
     const sx = (base, s) => (base ? base + s : null);
@@ -191,15 +203,20 @@
     };
     const participles = {
       title: "Participles",
-      note: "The passive past participle applies only to transitive verbs.",
       // Passive pair first so they share a row; the lone active present then
       // starts a fresh row instead of being orphaned beside a passive form.
-      rows: [
+      rows: [],
+    };
+    if (!isIntransitiveOnly(translation)) {
+      if (isBothTransitivity(translation)) {
+        participles.note = "The passive past participle applies only to transitive verbs.";
+      }
+      participles.rows.push(
         { label: "Passive past · sing.", form: stem + "n" },
         { label: "Passive past · plur.", form: sx(pl, "n") },
-        { label: "Active present", form: sx(pl, "f") },
-      ],
-    };
+      );
+    }
+    participles.rows.push({ label: "Active present", form: sx(pl, "f") });
     return [tenses, participles];
   }
 
@@ -238,7 +255,7 @@
   // a glossary entry, or null if the entry has no generable paradigm. `klass` is
   // the glossary class string (e.g. "n, adj" or "pre, n"); a word may yield more
   // than one section (e.g. an entry that is both a verb and a noun).
-  function paradigm(word, klass, listedPlural) {
+  function paradigm(word, klass, listedPlural, translation) {
     const classes = (klass || "").split(/,\s*/).map(c => c.trim()).filter(Boolean);
 
     if (classes.includes("pro")) {
@@ -248,7 +265,7 @@
     }
 
     const sections = [];
-    if (classes.includes("v")) sections.push(...conjugateVerb(word, listedPlural));
+    if (classes.includes("v")) sections.push(...conjugateVerb(word, listedPlural, translation));
     if (classes.includes("n") || classes.includes("adj")) sections.push(declineNominal(word, listedPlural));
 
     if (!sections.length) return null;

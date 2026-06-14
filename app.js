@@ -185,7 +185,7 @@ function renderSection(sec) {
 function openForms(idx) {
   const row = GLOSSARY[idx];
   if (!row) return;
-  const para = Declension.paradigm(row[0], row[1], row[3]);
+  const para = Declension.paradigm(row[0], row[1], row[3], row[2]);
   if (!para) return;
 
   formsWordEl.textContent = row[0];
