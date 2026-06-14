@@ -143,6 +143,7 @@ Possessives, and even object pronouns are often omitted in spoken language when 
 ### Conjunctions
 
 - *wa*: and
+- *uzwa*: but, yet, however
 - *dana*: like
 - *daz*: that (starts a subordinate clause)
 
@@ -284,3 +285,33 @@ Some common word constructions:
 lit: All human beings were born free and equal with worth and right. Mind and conscience were granted to them. They would act towards others with a mentality of brotherhood.
 
 All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+
+---
+
+*rawaan idayiin*
+
+*ishi mazadwa nawaamdif suwinir isha* \
+*sayiiz zifaj lawaamdi dana idayiin* \
+*rawaandif daz ishi yasali shiyaamar liyaanar az qayiid* \
+*jila adis rayiiq uwaashdin* \
+*suwin isha dasawa ishir mi firaz* \
+*ishi ladawa daz zalzi zifaj shuli zaba* \
+*uzwa shayiib zifaj ushuqwa duqa* \
+*suwin isha dasawa ishir mi firaz* \
+*ishi firza daz uz ashli bayiish lawaamdi ushuq zaba* \
+*ishi mazadwa nawaamdif suwinir isha* \
+*fid ufiid bayiish lawaamdi dana idayiin*
+
+Hopes are stars
+
+I went to find my love \
+Her eyes glitter like stars \
+Hoping to hear soft whispers of steps \
+Leather on broken leaves \
+My love left me guessing \
+I thought her heart was gold \
+But her words were steel \
+My love left me guessing \
+I guess not all that glitters is gold \
+I went to find my love \
+With tears that glitter like stars

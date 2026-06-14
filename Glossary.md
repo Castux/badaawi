@@ -172,3 +172,22 @@
 | daz           | conj     | that (starts subordinate clause)                       |                 |                                                                                         |
 | dakhba        | n        | speed                                                  | dakhaab         |                                                                                         |
 | dakhbaj       | adj      | speedy, fast, quick                                    | dakhaabji       |                                                                                         |
+| dasad         | v        | to leave, to abandon, to forsake (tr.)                 | dawaasdi        |                                                                                         |
+| duqa          | n        | steel, iron, hard metal                                | duwaaq          |                                                                                         |
+| firaz         | n        | doubt, uncertainty, guess                              | fiyaarzi        |                                                                                         |
+| firzad        | v        | to guess, to doubt, to wonder (tr./intr.)              | firaazdi        |                                                                                         |
+| jila          | n        | leather, hide                                          | jiwiil          |                                                                                         |
+| lamad         | v        | to shine, to glitter, to sparkle (intr.)               | lawaamdi        |                                                                                         |
+| lina          | adj      | soft, gentle, tender                                   | liyaan          |                                                                                         |
+| namad         | v        | to seek, to look for, to find (tr.)                    | nawaamdi        |                                                                                         |
+| qadi          | n        | step, footstep                                         | qayiid          |                                                                                         |
+| raana         | n        | hope                                                   | rawaan          |                                                                                         |
+| ranad         | v        | to hope, to long for (tr.)                             | rawaandi        |                                                                                         |
+| raqi          | n        | leaf                                                   | rayiiq          |                                                                                         |
+| sazi          | n        | eye                                                    | sayiiz          |                                                                                         |
+| shabi         | n        | word                                                   | shayiib         |                                                                                         |
+| shima         | n        | whisper, murmur                                        | shiyaam         |                                                                                         |
+| suwin         | n        | beloved, loved one                                     | suufin          | Passive past participle of _suwif_ used as a noun.                                      |
+| uzwa          | conj     | but, yet                                               |                 | From _uz_ (not) + _wa_ (and).                                                           |
+| yasad         | v        | to hear, to listen (tr.)                               | yawaasdi        |                                                                                         |
+| zaba          | n, adj   | gold, golden                                           | zawaab          |                                                                                         |
