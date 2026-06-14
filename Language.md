@@ -124,6 +124,8 @@ Note: the object forms are irregular.
 | 3rd plu. (animate)    | *iizfi*  | *iizfir*   | *iizfij*   |
 | 3rd plu. (inanimate)  | *awaab*  | *awaabar*  | *awaabaj*  |
 
+Possessives, and even object pronouns are often omitted in spoken language when context is sufficient.
+
 ### Prepositions
 
 - *az*: of (possession, provenance, material)
@@ -136,6 +138,13 @@ Note: the object forms are irregular.
 - *na* + object marker: to (generic indirect object marker, recipient)
 - *misif* + object marker: for (beneficiary of the action, purpose, intention)
 - *ashli*: all, all of (countable or uncountable)
+- *fid*: with (accompaniment, manner), about, regarding (topic)
+
+### Conjunctions
+
+- *wa*: and
+- *dana*: like
+- *daz*: that (starts a subordinate clause)
 
 ### Verbs
 
@@ -194,6 +203,18 @@ Only transitive verbs admit a past (passive) participle. The equivalent construc
 - *a alzura bashi ujiwa uz fura*: The hidden sun (lit. "which hid") does not burn.
 - *a alzura uyiijnif uz fura*: The hiding sun does not burn.
 
+#### Imperative
+
+For the second person, an injunction told to the person talked to, the verb in its basic form (infinitive) is used by itself.
+
+- *marufiq birsharufur na iwiishir*: Play us a lullaby.
+- *shuda zalij misif ilifara*: Be good to your sister.
+
+The future/conditional tense can be used for any person, by implying a subordinate clause for "I wish", or "Would that", with or without the conjunction *daz*:
+
+- *irshuwi irilish*: Let rain fall (lit. "rain will/would fall")
+- *daz iwiish ushuqlish ayiizli*: Let us be free (lit. "that we would be free")  
+
 ### Sentence construction
 
 #### Word order
@@ -227,6 +248,13 @@ Similarly, relative clauses can be introduced with the relative pronoun *bashi*,
 - *na bashiri*: to whom
 - *mi bashi*: in which
 - etc.
+
+#### Object subordinate clauses
+
+They are introduced by verbs like "wish" "say", for which the object of the action is a whole clause. They start with the conjunction *daz* (that). Those that represent uncertain actions are in the future/conditional tense.
+
+- *zif shabawa daz bij ufsubawa zifir*: She said that you cursed her!
+- *ishi salish daz zif suwilish*: I wish he loved me. (lit: I would want that he loves)
 
 ## Lexicon
 
