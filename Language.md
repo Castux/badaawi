@@ -195,7 +195,7 @@ The active present participle is: plural root + *-f*, regardless of number. It c
 
 The passive past participle is: singular root without final consonant + *-n* for singular, and plural root + *-n* for plural subjects. It marks the state of having been the object of the action. It normally acts as adjective, more rarely as noun. It can introduce a passive clause (usually followed by *dar*: by).
 
-- *ufsuban mazdifi*: a cursed road
+- *mazdifi ufsuban*: a cursed road
 - *a iyaazdin*: the served (ie. the masters)
 
 Only transitive verbs admit a past (passive) participle. The equivalent construction for intransitive verbs is done using a relative clause, or to use the active present participle if the meaning is similar.
@@ -219,7 +219,7 @@ The unreal tense can be used for any person, by implying a subordinate clause fo
 
 Adverbs are not a separate word class. To qualify an action, use *fid* and a noun (with) or add an adjective to the subject of the action when context is clear.
  
-- *a mazdi siwaawa ashli siwaara fid dakhba*: THe camel quickly drank all the water (lit: with speed).
+- *a mazdi siwaawa ashli siwaara fid dakhba*: The camel quickly drank all the water (lit: with speed).
 - *a mazdi dakhbaj siwaawa ashli siwaara*: The quick camel drank all the water.
 
 ### Sentence construction
@@ -279,8 +279,8 @@ Some common word constructions:
 
 ## Phrases
 
-*ashli shawaadfi ayiizmi zawaandin ayiizli wa dawaanshi fid zalaf wa ushab. ladun wa zalim mawaardin na iizfir. iizfi rayiizfili misif khuyiidir fid alladum az aruzinwi.*
+*ashli shawaadfi ayiizji zawaandin ayiizli wa dawaanshi fid zalaf wa ushab. ladun wa zalim mawaardin na iizfir. iizfi rayiizfili misif khuyiidir fid alladum az aruzinwi.*
 
-lit: All humans beings were born free and equal with worth and right. Mind and conscience were granted to them. They would act towards others with a mentality of brotherhood.
+lit: All human beings were born free and equal with worth and right. Mind and conscience were granted to them. They would act towards others with a mentality of brotherhood.
 
 All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
