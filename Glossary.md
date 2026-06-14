@@ -6,7 +6,7 @@
 | adis          | pre      | up, above                              |                 |                                            |
 | afaa          | n        | constellation                          | awaaf           |                                            |
 | afshin        | n        | devil                                  | afiishni        |                                            |
-| afuushyif     | v        | to hold                                | afushiiqfi      |                                            |
+| afuushyif     | v        | to hold (tr.)                          | afushiiqfi      |                                            |
 | akhsha        | n        | impure water                           | akhaash         |                                            |
 | akhshawi      | n        | sea                                    | akhshayiif      |                                            |
 | alazim        | n        | giant, hero                            | alayiizmi       |                                            |
@@ -24,7 +24,7 @@
 | awali         | n        | daughter                               | awayiil         |                                            |
 | az            | pre      | of                                     |                 |                                            |
 | azaar         | n        | god                                    | awaazri         |                                            |
-| azaarad       | v        | to worship                             | azawaardi       |                                            |
+| azaarad       | v        | to worship (tr.)                       | azawaardi       |                                            |
 | azaaraj       | adj      | godly, divine                          | azawaarji       |                                            |
 | azaarbi       | n        | temple                                 | azariib         |                                            |
 | azim          | n        | person, human                          | ayiizmi         |                                            |
@@ -36,11 +36,11 @@
 | badaawizim    | n        | desert person                          | badawiwiizmi    |                                            |
 | bakhaamdif    | n, adj   | motion, moving                         | bakhamiidfi     |                                            |
 | bakhi         | n        | wind                                   | bayiikh         |                                            |
-| bakhi         | n        | relative clause marker                 | bakhi           |                                            |
-| bakhmad       | v        | to move                                | bakhaamdi       |                                            |
+| bashi         | n        | relative clause marker                 | bayiish         |                                            |
+| bakhmad       | v        | to move (intr.)                        | bakhaamdi       |                                            |
 | bakhmizim     | n        | nomad                                  | bakhmiwiizmi    |                                            |
 | bij           | pro      | you                                    | iibji           |                                            |
-| birshad       | v        | to cradle, to lull                     | biraashdi       |                                            |
+| birshad       | v        | to cradle, to lull (tr.)               | biraashdi       |                                            |
 | birsharuf     | n        | lullaby                                | birshakhuurfi   |                                            |
 | birshi        | n        | cradle, crib                           | biriish         |                                            |
 | biwib         | n        | question marker                        | biwiifbi        |                                            |
@@ -49,7 +49,7 @@
 | dunijad       | v        | to change, to transform (tr.)          | duniyaajdi      |                                            |
 | faja          | pre      | down, below                            |                 |                                            |
 | fashmi        | adj      | green                                  | fashiim         |                                            |
-| furad         | v        | to burn                                | fuwaardi        |                                            |
+| furad         | v        | to burn (tr.)                          | fuwaardi        |                                            |
 | furbakh       | n        | smoke                                  | furaabkhi       |                                            |
 | idani         | n        | star                                   | idayiin         |                                            |
 | il            | n        | comfort, safety                        |                 |                                            |
@@ -57,17 +57,17 @@
 | iluwadi       | n        | glass                                  | iluwayiid       |                                            |
 | ilwi          | n        | home, family, community                | iliif           |                                            |
 | ilwisha       | n        | female given name                      | ilwiyaash       |                                            |
-| iradad        | v        | to rise                                | irawaaddi       |                                            |
-| irish         | v        | to fall                                | iwiirshi        |                                            |
+| iradad        | v        | to rise (intr.)                        | irawaaddi       |                                            |
+| irish         | v        | to fall (intr.)                        | iwiirshi        |                                            |
 | irshu         | n        | falling water                          | iruush          |                                            |
 | irshum        | n        | fountain, spring                       | iruushmi        |                                            |
 | irshuwi       | n        | fall, cascade, rain                    | irshuyiif       |                                            |
 | iruwi         | adj      | new                                    | iruyiif         |                                            |
-| iruwizad      | v        | to renew                               | iruwiyaazdi     |                                            |
+| iruwizad      | v        | to renew, to make anew (tr.)           | iruwiyaazdi     |                                            |
 | ishi          | pro      | I                                      | iwiish          |                                            |
 | iyaazdif      | n        | service                                | iyaziidfi       |                                            |
 | iza           | n        | servant                                | iyaaz           |                                            |
-| izad          | v        | to serve                               | iyaazdi         |                                            |
+| izad          | v        | to serve (tr.)                         | iyaazdi         |                                            |
 | khad          | n        | point (end), peninsula                 | aakhdi          |                                            |
 | khajud        | n        | sky                                    | khakhuujdi      |                                            |
 | khajudij      | n        | celestial                              | khajuyiidji     |                                            |
@@ -77,32 +77,33 @@
 | maasha        | n        | branch, crossroad                      | mawaash         |                                            |
 | maruf         | n        | music                                  | makhuurfi       |                                            |
 | marwan        | n        | stone                                  | maraafni        |                                            |
-| mazad         | v        | to travel, to take the road            | mawaazdi        |                                            |
+| mazad         | v        | to travel, to take the road (intr.)    | mawaazdi        |                                            |
 | mazdi         | n        | camel                                  | maziid          |                                            |
 | mazdifi       | n        | caravan, road, trade route             | mazdiwiif       |                                            |
 | mi            | pre, n   | in, inside                             | iim             |                                            |
 | qa            | adj      | short                                  | aaq             |                                            |
 | saraf         | n        | angel                                  | sawaarfi        |                                            |
 | sarim         | n        | sprout                                 | sayiirmi        |                                            |
-| sarimad       | v, n     | to grow, Serimet                       | sariyaamdi      |                                            |
+| sarimad       | v        | to grow (tr./intr.)                    | sariyaamdi      |                                            |
+| sarimad       | n        | Serimet                                | sariyaamdi      |                                            |
 | shaayib       | n        | mist                                   | shayiiqbi       |                                            |
 | shab          | n        | lip                                    | aashbi          |                                            |
-| shabad        | v        | to speak                               | shawaabdi       |                                            |
+| shabad        | v        | to speak, to say (tr./intr.)           | shawaabdi       |                                            |
 | shawaabdif    | n        | speech, language, tongue               | shawabiidfi     |                                            |
 | shif          | pre, adj | three, threefold                       | iishfi          |                                            |
 | sid           | n        | gate                                   | iisdi           |                                            |
 | sifikh        | n        | kiln, oven                             | siwiifkhi       |                                            |
 | siwaa         | n        | pure water                             | siyaaf          |                                            |
 | siwaabi       | n        | oasis                                  | siwayiib        |                                            |
-| siwaad        | v        | to drink                               | siyaafdi        |                                            |
+| siwaad        | v        | to drink (tr.)                         | siyaafdi        |                                            |
 | udar          | n        | river                                  | uwaadri         |                                            |
-| ufad          | v        | to cry                                 | uwaafdi         |                                            |
+| ufad          | v        | to cry (tr./intr.)                     | uwaafdi         |                                            |
 | ufdi          | n        | tear (crying)                          | ufiid           |                                            |
-| ufsubad       | v        | to hex, to make magic, to curse        | ufsuwaabdi      |                                            |
+| ufsubad       | v        | to hex, to make magic, to curse (tr.)  | ufsuwaabdi      |                                            |
 | ujani         | adj, n   | hidden, secret                         | ujayiin         |                                            |
-| ujin          | v        | to hide                                | uyiijni         |                                            |
+| ujin          | v        | to hide, to be hidden (intr.)          | uyiijni         |                                            |
 | usha          | n        | flowing water                          | uwaash          |                                            |
-| ushad         | v        | to break                               | uwaashdi        |                                            |
+| ushad         | v        | to break (tr.)                         | uwaashdi        |                                            |
 | ushud         | n        | rift, canyon, break                    | ukhuushdi       |                                            |
 | uwaadi        | n        | flying sand, dust                      | uwayiid         |                                            |
 | uwaadij       | adj      | dusty                                  | uwayiidji       |                                            |
@@ -114,7 +115,7 @@
 | uzmizim       | n        | outsider, foreigner                    | uzmiwiizmi      |                                            |
 | uzqa          | adj      | long                                   | uzaaq           |                                            |
 | wadi          | n        | spirit                                 | wayiid          |                                            |
-| wasbad        | v        | to profess, to advise                  | wasaabdi        |                                            |
+| wasbad        | v        | to profess, to advise (tr.)            | wasaabdi        |                                            |
 | wasib         | n        | scholar, wise person, advisor          | wayiisbi        |                                            |
 | wasibbi       | n        | school                                 | wasibiib        |                                            |
 | wazda         | adj      | ochre, dark yellow                     | wazaad          |                                            |

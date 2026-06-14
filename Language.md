@@ -113,6 +113,7 @@ Note: the object forms are irregular.
 
 ### Prepositions
 
+- *az*: of (possession, provenance, material)
 - *mi*: location, in, inside
 - *uzmi*: outside of
 - *ib*: to, towards, destination (location) / into (transformative case)
@@ -128,6 +129,8 @@ They agree in number with their subject, that is: they take the plural root if t
 
 The first verb group (most common) is *-ad*, the second is *-iC*, and the third is irregular verbs.
 
+#### Tenses
+
 There are three main tenses: present (actions going on at the time of speech, or timeless), perfect (actions completed or in the past), and future (also used for uncertainty, conditional, etc.)
 
 In the singular, verbs lose their final consonant to form the present. In plural, the plural root is used instead. Perfect is then formed by adding *-wa*, and future by adding *-lish*.
@@ -141,30 +144,58 @@ In the singular, verbs lose their final consonant to form the present. In plural
 
 Verbs are always in the active voice, except when using the past participle.
 
-Negative sentences are formed by placing *uz* before the word to negate, which is often the verb, but not only (for emphasis or precision). The prefix *uz-* comes into the construction of many antonyms that don't have a simple form.
 
 #### Participles
 
 The active present participle is: plural root + *-f*, regardless of number. It can act as an adjective, the pivot in a relative clause or a noun (the act related to that verb).
 
-The passive past participle is: singular root without final consonant + *-n* for singular, and plural root + *-n* for plural subjects. It marks the state of having been the object of the action. It normally acts as adjective, more rarely as noun. It can introduce a passive clause (usually followed by *dar* (by)).
+- *a mazdi siyaafdif*: the drinking camel
+- *adifi iyaazdif ilwiri zifaj iza a badaawiri*: A son serving his family serves the desert.
+- *mawaazdif usha ayiizmiri*: Travelling breaks people.
 
-Only transitive verbs admit a past (passive) participle.
+The passive past participle is: singular root without final consonant + *-n* for singular, and plural root + *-n* for plural subjects. It marks the state of having been the object of the action. It normally acts as adjective, more rarely as noun. It can introduce a passive clause (usually followed by *dar*: by).
+
+- *ufsuban mazdifi*: a cursed road
+- *a iyaazdin*: the served (ie. the masters)
+
+Only transitive verbs admit a past (passive) participle. The equivalent construction for intransitive verbs is done using a relative clause, or to use the active present participle if the meaning is similar.
+
+- *a alzura bashi ujiwa uz fura*: The hidden sun (lit. "which hid") does not burn.
+- *a alzura uyiijnif uz fura*: The hiding sun does not burn.
 
 ### Sentence construction
 
+#### Word order
+
 The usual word order is SVO (subject verb object), with SOV employed more informally or for emphasis.
 
-Relative clauses can be introduced with the relative pronoun *bakhi*, which agrees in number (*bayiikh* in plural), and is always at the start of the relative clause, possibly with a conjunction:
+#### Negative clauses
 
-- *wid bakhi*: when
-- *na bakhi*: to whom
-- *mi bakhi*: in which
-- etc.
+Negative sentences are formed by placing *uz* before the word to negate, which is often the verb, but not only (for emphasis or precision). The prefix *uz-* comes into the construction of many antonyms that don't have a simple form.
+
+#### Interrogative clauses
 
 Open questions are formed by placing the word *biwib* wherever the answer would functionally fit in the question. *biwib* takes object marks and plural roots regularly.
 
+- *biwib shaba*: Who speaks?
+- *bij shabawa biwibir*: What did you say?
+- *mazdifi az biwib uji*: Whose caravan is hiding?
+- *wid biwib*: when?
+- *na biwibir*: to whom?
+- *mi biwib*: where, in what?
+- etc.
+
 Yes-no questions don't have a grammatical equivalent, they are always rephrased as open questions. Spoken language sometimes uses the declarative sentence with intonation to imply a question.
+
+#### Relative clauses
+
+Similarly, relative clauses can be introduced with the relative pronoun *bashi*, and is always at the start of the relative clause, possibly with a conjunction:
+
+- *a ayiizmi bayiish mawaazdi uz azawaardi sarimadar*: The men who travel do not worship Serimet.
+- *wid bashi*: when
+- *na bashiri*: to whom
+- *mi bashi*: in which
+- etc.
 
 ## Lexicon
 
