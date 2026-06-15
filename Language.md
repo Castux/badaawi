@@ -140,6 +140,8 @@ Possessives, and even object pronouns are often omitted in spoken language when 
 - *ashli*: all, all of (countable or uncountable)
 - *fid*: with (accompaniment, manner), about, regarding (topic)
 
+All these prepositions are followed by nouns or nominal clauses. To introduce a subordinate clause with an action, use *daz* (see below).
+
 ### Conjunctions
 
 - *wa*: and
@@ -240,9 +242,11 @@ Open questions are formed by placing the word *biwib* wherever the answer would 
 - *biwib shaba*: Who speaks?
 - *bij shabawa biwibir*: What did you say?
 - *mazdifi az biwib uji*: Whose caravan is hiding?
-- *wid biwib*: when?
+- *wid biwib*: when, at what time, during what?
 - *na biwibir*: to whom?
 - *mi biwib*: where, in what?
+- *misif biwibir*: for whom, for what purpose?
+- *dar biwib*: from where, from who, why, because of what?
 - etc.
 
 Yes-no questions don't have a grammatical equivalent, they are always rephrased as open questions. Spoken language sometimes uses the declarative sentence with intonation to imply a question.
@@ -252,7 +256,7 @@ Yes-no questions don't have a grammatical equivalent, they are always rephrased 
 Similarly, relative clauses can be introduced with the relative pronoun *bashi*, and is always at the start of the relative clause, possibly with a conjunction:
 
 - *a ayiizmi bayiish mawaazdi uz azawaardi sarimadar*: The men who travel do not worship Serimet.
-- *wid bashi*: when
+- *wid bashi*: when ("at the time which", "during witch")
 - *na bashiri*: to whom
 - *mi bashi*: in which
 - etc.
@@ -263,6 +267,38 @@ They are introduced by verbs like "wish" "say", for which the object of the acti
 
 - *zif shabawa daz bij ufsubawa zifir*: She said that you cursed her!
 - *ishi sali daz zif suwili*: I wish he loved me. (lit: I would want that he loves)
+
+#### Other subordinate clauses
+
+They are built using the usual prepositions and introducing the clause with *daz*.
+
+Epression of time of another action: *wid daz* (when, at the time that)
+
+- *zif ladawa fid bij wid daz zif yasawa marufur*: She thought about you when she heard the music. (lit.: "during that she...")
+
+Expression of purpose, intention: *misif daz* (in order to, so that)
+
+- *ishi mazawa ib alishandariya misif daz ishi namali a alwasibbiri*: I travelled to Alexandria to find the university (lit: so that I would find)
+
+Expression of cause: *dar daz* (because):
+
+- *sayiirmi sariyaamdi dar daz udar bakhma*: The sprouts grow because the river flows. (lit: because of the fact that the river flows)
+
+### Misc. expressions
+
+#### Quantifiers
+
+The quantifiers *uza* (none), *iifaq* (some), *adaawa* (a lot, many) and *ashli* (all, whole) apply to both countables and uncountables.
+
+Logically:
+
+- singular countable refer to divisions of a single object: none of it, some of it, a lot of it, the whole thing
+- plural countable refers to a collection of objects: no objects, a few objects, many objects, all the objects
+- uncountable (normally in the singular) refers to an amount: no amount, a little amount, a large amount, all of it 
+
+Using uncountables in the plural is usually a way to make them countable, referring to different kinds or variations.
+
+Note that *ashli* is also an adjective (entire, whole) and a noun (entirety) and in these forms inflects regularly.
 
 ## Lexicon
 

@@ -2,7 +2,7 @@
 | :------------ | :------- | :----------------------------------------------------- | :-------------- | :-------------------------------------------------------------------------------------- |
 | a             | pre      | the                                                    |                 |                                                                                         |
 | aba           | pro      | it (inanimate)                                         | awaab           |                                                                                         |
-| adifi         | n        | son                                                    | adiwiif         |                                                                                         |
+| adifi         | n        | son, boy                                               | adiwiif         |                                                                                         |
 | adis          | pre      | up, above                                              |                 |                                                                                         |
 | afaa          | n        | constellation                                          | awaaf           |                                                                                         |
 | afshin        | n        | devil                                                  | afiishni        |                                                                                         |
@@ -20,9 +20,9 @@
 | alzuraj       | n        | sunny, bright, warm, sun-like                          | alzuwaarji      | Mostly euphemistically applied to a person                                              |
 | alzuwir       | n        | sunfire, desert heat                                   | alzuyiifri      |                                                                                         |
 | aruzin        | n        | brother                                                | aruyiizni       |                                                                                         |
-| ashli         | pre      | all, all of                                            |                 |                                                                                         |
+| ashli         | pre      | all, all the, all of, every, the whole                 |                 | Countable or uncountable                                                                |
 | ashli         | adj, n   | whole, entire, entirety                                | ashiil          |                                                                                         |
-| awali         | n        | daughter                                               | awayiil         |                                                                                         |
+| awali         | n        | daughter, girl                                         | awayiil         |                                                                                         |
 | az            | pre      | of                                                     |                 |                                                                                         |
 | azaar         | n        | god                                                    | awaazri         |                                                                                         |
 | azaarad       | v        | to worship (tr.)                                       | azawaardi       |                                                                                         |
@@ -45,7 +45,7 @@
 | birshad       | v        | to cradle, to lull (tr.)                               | biraashdi       |                                                                                         |
 | birsharuf     | n        | lullaby                                                | birshakhuurfi   |                                                                                         |
 | birshi        | n        | cradle, crib                                           | biriish         |                                                                                         |
-| biwib         | n        | question marker                                        | biwiifbi        |                                                                                         |
+| biwib         | n        | question marker, who?, what?                           | biwiifbi        |                                                                                         |
 | dala          | n        | land, expanse                                          | dawaal          |                                                                                         |
 | dar           | pre      | by                                                     |                 |                                                                                         |
 | dunijad       | v        | to change, to transform (tr.)                          | duniyaajdi      |                                                                                         |
@@ -154,7 +154,7 @@
 | ushab         | n        | right, entitlement, due                                | uwaashbi        |                                                                                         |
 | marad         | v        | to endow, to grant (tr.)                               | mawaardi        |                                                                                         |
 | ladun         | n        | reason, mind, intellect                                | lakhuudni       |                                                                                         |
-| ladad         | v        | to think                                               | lawaaddi        |                                                                                         |
+| ladad         | v        | to think, to ponder (intr.)                            | lawaaddi        | + fid (about) or + daz (that, subordinate clause)                                       |
 | alladum       | n        | mindset, way of thinking, mentality                    | allakhuudmi     |                                                                                         |
 | zalim         | n        | conscience, moral sense, heart                         | zayiilmi        |                                                                                         |
 | razif         | v        | to act, to behave (intr.)                              | rayiizfi        |                                                                                         |
@@ -193,4 +193,16 @@
 | zaba          | n, adj   | gold, golden                                           | zawaab          |                                                                                         |
 | uzfid         | pre      | without                                                |                 |                                                                                         |
 | uz            | pre      | no, not                                                |                 | Never used by itself                                                                    |
-| wid ashli lif | pre      | always, at all times                                   |                 |                                                                                         |
+| wid ashli lif | pre      | always, all the time                                   |                 |                                                                                         |
+| na            | pre      | to (indirect object marker, recipient)                 |                 | Takes object marker: na + obj. marker                                                   |
+| misif         | pre      | for (beneficiary, purpose, intention)                  |                 | Takes object marker: misif + obj. marker                                                |
+| adaawa        | pre      | many, a lot of                                         |                 | Countable or uncountable                                                                |
+| iifaq         | pre      | few, a few, a little of, some                          |                 | Countable or uncountable                                                                |
+| uza           | pre      | none, none of, no                                      |                 | Countable or uncountable                                                                |
+| sizad         | v        | to see, to watch (tr.)                                 | siyaazdi        |                                                                                         |
+| wid biwib     | pro      | when?                                                  |                 |                                                                                         |
+| wid daz       | conj     | when + subordinate clause                              |                 |                                                                                         |
+| dar biwib     | pro      | why?                                                   |                 | Also: from where?, from who?                                                            |
+| dar daz       | conj     | because + subordinate clause                           |                 |                                                                                         |
+| misif daz     | conj     | in order to, so that + subordinate clause              |                 |                                                                                         |
+| mi biwib      | pro      | where?                                                 |                 |                                                                                         |
