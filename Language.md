@@ -263,10 +263,12 @@ Similarly, relative clauses can be introduced with the relative pronoun *bashi*,
 
 #### Object subordinate clauses
 
-They are introduced by verbs like "wish" "say", for which the object of the action is a whole clause. They start with the conjunction *daz* (that). Those that represent uncertain actions are in the unreal tense.
+They are introduced by verbs like *sad* (to wish), *shabad* (to say), or *ladad* (to think), for which the object of the action is an entire clause. They start with the conjunction *daz* (that). Those that represent uncertain actions are in the unreal tense.
 
 - *zif shabawa daz bij ufsubawa zifir*: She said that you cursed her!
 - *ishi sali daz zif suwili*: I wish he loved me. (lit: I would want that he loves)
+
+Note: *daz* is never omitted.
 
 #### Other subordinate clauses
 
