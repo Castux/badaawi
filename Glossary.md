@@ -167,7 +167,7 @@
 | shadaf        | n        | being, creature                                        | shawaadfi       |                                                                                         |
 | zalij         | adj      | good, moral (of a person)                              | zayiilji        |                                                                                         |
 | sad           | v        | to want, to desire, to wish (tr.)                      | aasdi           | In the unreal tense, has the meaning "to wish"                                          |
-| suwi          | n        | love                                                   | suyiif           |                                                                                         |
+| suwi          | n        | love                                                   | suyiif          |                                                                                         |
 | suwif         | v        | to love (tr.)                                          | suufi           |                                                                                         |
 | daz           | conj     | that (starts subordinate clause)                       |                 |                                                                                         |
 | dakhba        | n        | speed                                                  | dakhaab         |                                                                                         |
@@ -187,7 +187,10 @@
 | sazi          | n        | eye                                                    | sayiiz          |                                                                                         |
 | shabi         | n        | word                                                   | shayiib         |                                                                                         |
 | shima         | n        | whisper, murmur                                        | shiyaam         |                                                                                         |
-| suwin         | n        | beloved, loved one                                     | suufin          | Passive past participle of _suwif_ used as a noun.                                      |
-| uzwa          | conj     | but, yet                                               |                 | From _uz_ (not) + _wa_ (and).                                                           |
+| suwin         | n        | beloved, loved one                                     | suufin          | Passive past participle of suwif used as a noun.                                        |
+| uzwa          | conj     | but, yet                                               |                 | From uz (not) + wa (and).                                                               |
 | yasad         | v        | to hear, to listen (tr.)                               | yawaasdi        |                                                                                         |
 | zaba          | n, adj   | gold, golden                                           | zawaab          |                                                                                         |
+| uzfid         | pre      | without                                                |                 |                                                                                         |
+| uz            | pre      | no, not                                                |                 | Never used by itself                                                                    |
+| wid ashli lif | pre      | always, at all times                                   |                 |                                                                                         |

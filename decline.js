@@ -325,9 +325,161 @@
     return classes.includes("v") || classes.includes("n") || classes.includes("adj");
   }
 
+  // ── Single-form inflection (for the translation assistant) ─────────────────
+  // Where paradigm() lays out every cell of a word's table, the assistant needs
+  // the one form a set of grammatical choices selects. The choices are carried as
+  // a small list of *tags* (e.g. ["pl","o"] or ["perf"]); inflectionAxes() tells
+  // the UI which tags are meaningful for a class, and inflect() turns word+tags
+  // into the single inflected string.
+
+  // The inflecting class of an entry, by the same precedence paradigm() uses.
+  function primaryClass(klass) {
+    const classes = (klass || "").split(/,\s*/).map(c => c.trim());
+    if (classes.includes("pro")) return "pro";
+    if (classes.includes("v")) return "v";
+    if (classes.includes("n") || classes.includes("adj")) return "nominal";
+    return "invariant";
+  }
+
+  // Reverse map: any pronoun form → its grammatical coordinates, so a looked-up
+  // form (e.g. *iwiish* "we", *isha* "my") can be traced to its base entry and
+  // the number/case it already encodes.
+  const PRONOUN_SLOT = {};
+  for (const [key, p] of Object.entries(PRONOUNS)) {
+    for (const num of ["sing", "plur"]) {
+      for (const cse of ["subj", "obj", "poss"]) {
+        const form = p[num][cse];
+        if (!(form in PRONOUN_SLOT)) PRONOUN_SLOT[form] = { key, num, cse };
+      }
+    }
+  }
+
+  // Normalise a pronoun form to its dictionary base (1st-sing subject of its
+  // person) plus the tags that recover the looked-up form. Lets the assistant
+  // treat every pronoun uniformly: a singular-subject base steered by tags.
+  function pronounBase(word) {
+    const slot = PRONOUN_SLOT[word];
+    if (!slot) return null;
+    const tags = [];
+    if (slot.num === "plur") tags.push("pl");
+    if (slot.cse === "obj") tags.push("o");
+    else if (slot.cse === "poss") tags.push("poss");
+    return { base: PRONOUNS[slot.key].sing.subj, tags };
+  }
+
+  // The grammatical axes available for a class. Each axis is either a `select`
+  // (one option active, the empty-tag option being the default) or a `toggle`
+  // (its single tag present or not). `appliesWhen` hides an axis for selections
+  // where it's meaningless (a participle has no separate plural form).
+  function inflectionAxes(klass) {
+    switch (primaryClass(klass)) {
+      case "nominal":
+        return [
+          { key: "number", label: "Number", type: "select", options: [
+            { tag: "", label: "sing." }, { tag: "pl", label: "plural" } ] },
+          { key: "object", label: "Object", type: "toggle", options: [
+            { tag: "o", label: "object" } ] },
+        ];
+      case "v":
+        return [
+          { key: "form", label: "Form", type: "select", options: [
+            { tag: "", label: "present" }, { tag: "p", label: "perfect" },
+            { tag: "un", label: "unreal" }, { tag: "ap", label: "act. part." },
+            { tag: "pp", label: "pass. part." }, { tag: "imp", label: "imper." } ] },
+          { key: "number", label: "Number", type: "select",
+            appliesWhen: sel => !["ap", "imp"].includes(sel.form),
+            options: [ { tag: "", label: "sing." }, { tag: "pl", label: "plural" } ] },
+        ];
+      case "pro":
+        return [
+          { key: "case", label: "Case", type: "select", options: [
+            { tag: "", label: "subject" }, { tag: "o", label: "object" },
+            { tag: "poss", label: "possess." } ] },
+          { key: "number", label: "Number", type: "select", options: [
+            { tag: "", label: "sing." }, { tag: "pl", label: "plural" } ] },
+        ];
+      default:
+        return [];
+    }
+  }
+
+  // Read a tag list back into a per-axis selection (the inverse of the chips the
+  // UI shows): each select axis → its active tag (or ""), each toggle → boolean.
+  function selectionFromTags(klass, tags) {
+    tags = tags || [];
+    const sel = {};
+    for (const ax of inflectionAxes(klass)) {
+      if (ax.type === "toggle") {
+        sel[ax.key] = tags.includes(ax.options[0].tag);
+      } else {
+        let chosen = "";
+        for (const opt of ax.options) if (opt.tag && tags.includes(opt.tag)) chosen = opt.tag;
+        sel[ax.key] = chosen;
+      }
+    }
+    return sel;
+  }
+
+  // The inverse: a selection object → its canonical (axis-ordered) tag list.
+  function tagsFromSelection(klass, sel) {
+    const tags = [];
+    for (const ax of inflectionAxes(klass)) {
+      if (ax.type === "toggle") { if (sel[ax.key]) tags.push(ax.options[0].tag); }
+      else if (sel[ax.key]) tags.push(sel[ax.key]);
+    }
+    return tags;
+  }
+
+  const TENSE_KEY = { pres: "present", perf: "perfect", unreal: "unreal" };
+
+  // Produce the single inflected form of `entry` ({word, klass, plural}) under
+  // `tags`. Pronoun words must be the normalised base (see pronounBase). Returns
+  // the string, or null when the chosen form can't be built (e.g. a plural form
+  // with no plural root, a passive participle of a "to be" verb).
+  function inflect(entry, tags) {
+    tags = tags || [];
+    const word = entry.word;
+    const plural = entry.plural || pluralRoot(word);
+    const isPl = tags.includes("pl");
+
+    switch (primaryClass(entry.klass)) {
+      case "pro": {
+        const slot = PRONOUN_SLOT[word];
+        if (!slot) return word;
+        const p = PRONOUNS[slot.key];
+        const num = isPl ? "plur" : "sing";
+        const cse = tags.includes("o") ? "obj" : tags.includes("poss") ? "poss" : "subj";
+        return p[num][cse];
+      }
+      case "v": {
+        const irr = IRREGULAR_VERBS[word];
+        if (tags.includes("ap")) return plural ? plural + "f" : null;       // active participle
+        if (tags.includes("pp")) {                                          // passive participle
+          if (irr) return null;
+          return isPl ? (plural ? plural + "n" : null) : stripFinalC(word) + "n";
+        }
+        if (tags.includes("imp")) return word;                              // imperative = infinitive
+        const tense = tags.includes("p") ? "perf" : tags.includes("un") ? "unreal" : "pres";
+        if (irr) return irr[isPl ? "plur" : "sing"][TENSE_KEY[tense]];
+        const stem = isPl ? plural : stripFinalC(word);
+        if (!stem) return null;
+        return tense === "perf" ? stem + "wa" : tense === "unreal" ? stem + "li" : stem;
+      }
+      case "nominal": {
+        let base = isPl ? plural : word;
+        if (!base) return null;
+        return tags.includes("o") ? withObject(base) : base;
+      }
+      default:
+        return word;                                                        // invariant
+    }
+  }
+
   const api = {
     parseWord, pluralRoot, pluralRegularity,
     withObject, paradigm, isInflectable,
+    primaryClass, inflectionAxes, selectionFromTags, tagsFromSelection,
+    inflect, pronounBase,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   if (typeof window !== "undefined") window.Declension = api;

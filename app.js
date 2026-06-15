@@ -349,7 +349,9 @@ function renderGrammar(languageMd) {
     fetch('Language.md').then(r => r.text()),
   ]);
   GLOSSARY = parseGlossaryMd(glossaryText);
+  window.GLOSSARY = GLOSSARY;            // shared with the translation assistant (translate.js)
   buildFilters();
   render();
   renderGrammar(languageText);
+  window.dispatchEvent(new Event("glossary-ready"));
 })();
