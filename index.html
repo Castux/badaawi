@@ -21,8 +21,8 @@
     <nav class="tabs" role="tablist">
       <button class="tab-btn active" role="tab" data-tab="glossary">Glossary</button>
       <button class="tab-btn" role="tab" data-tab="grammar">Grammar</button>
-      <button class="tab-btn" role="tab" data-tab="workshop" id="tab-workshop" hidden>Workshop</button>
-      <button class="tab-btn" role="tab" data-tab="translate" id="tab-translate" hidden>Translation assistant</button>
+      <button class="tab-btn" role="tab" data-tab="translate" id="tab-translate">Translation assistant</button>
+      <button class="tab-btn" role="tab" data-tab="generator" id="tab-generator" hidden>Generator</button>
     </nav>
   </div>
 </header>
@@ -67,44 +67,44 @@
     </div>
   </div><!-- /panel-grammar -->
 
-  <!-- ── WORKSHOP PANEL (hidden unless ?lab) ── -->
-  <div id="panel-workshop" class="tab-panel" role="tabpanel">
+  <!-- ── GENERATOR PANEL (hidden unless ?lab) ── -->
+  <div id="panel-generator" class="tab-panel" role="tabpanel">
 
-    <div class="workshop-tool">
-      <h3 class="workshop-h">Generate words</h3>
-      <p class="workshop-lead">Phonotactically legal coinings — every one parses as a valid word. Click any to seed a family below.</p>
-      <div class="workshop-controls">
+    <div class="generator-tool">
+      <h3 class="generator-h">Generate words</h3>
+      <p class="generator-lead">Phonotactically legal coinings — every one parses as a valid word. Click any to seed a family below.</p>
+      <div class="generator-controls">
         <label for="gen-count">How many</label>
         <input type="number" id="gen-count" min="1" max="500" value="30" inputmode="numeric">
-        <button id="gen-btn" class="workshop-btn">Generate ▸</button>
+        <button id="gen-btn" class="generator-btn">Generate ▸</button>
       </div>
       <div id="gen-results" class="word-grid"></div>
     </div>
 
-    <div class="workshop-tool">
-      <h3 class="workshop-h">Semantic family</h3>
-      <p class="workshop-lead">Give a word a meaning and grow its kin — regular affixes, same-root re-vowellings, and drifted sound-shift doublets.</p>
-      <div class="workshop-controls">
+    <div class="generator-tool">
+      <h3 class="generator-h">Semantic family</h3>
+      <p class="generator-lead">Give a word a meaning and grow its kin — regular affixes, same-root re-vowellings, and drifted sound-shift doublets.</p>
+      <div class="generator-controls">
         <input type="text" id="fam-word" class="fam-input" placeholder="word (e.g. zura)" autocomplete="off" spellcheck="false">
         <input type="text" id="fam-meaning" class="fam-input" placeholder="meaning (e.g. fire)" autocomplete="off" spellcheck="false">
-        <button id="fam-btn" class="workshop-btn">Suggest ▸</button>
+        <button id="fam-btn" class="generator-btn">Suggest ▸</button>
       </div>
       <div id="fam-results" class="fam-results"></div>
     </div>
 
-  </div><!-- /panel-workshop -->
+  </div><!-- /panel-generator -->
 
   <!-- ── TRANSLATION ASSISTANT PANEL (hidden unless ?lab) ── -->
   <div id="panel-translate" class="tab-panel" role="tabpanel">
 
-    <div class="workshop-tool">
-      <h3 class="workshop-h">Translation assistant</h3>
+    <div class="generator-tool">
+      <h3 class="generator-h">Translation assistant</h3>
       <textarea id="tr-input" class="tr-input" rows="3" spellcheck="false" autocomplete="off"
         placeholder="e.g.   the camel drink.p impure_water.o"></textarea>
       <details class="tr-legend">
         <summary>Help</summary>
         <div class="tr-legend-body">
-          <p class="workshop-lead">A bulk lexicon lookup — not a translator. Type or paste English, one concept per word; word order, articles and grammar stay yours. The inflected forms gather in the output below; click any output word (or move the caret) to edit that word's match and inflection on the card. Annotate inline with dots (<code>camel.o.pl</code>) or use the card controls — text and card stay in step.</p>
+          <p class="generator-lead">A bulk lexicon lookup — not a translator. Type or paste English, one concept per word; word order, articles and grammar stay yours. The inflected forms gather in the output below; click any output word (or move the caret) to edit that word's match and inflection on the card. Annotate inline with dots (<code>camel.o.pl</code>) or use the card controls — text and card stay in step.</p>
           <p><code>word</code> — look the concept up in the glossary.</p>
           <p><code>rising_sun</code> — join a multi-word meaning with underscores; an exact sense match is preferred.</p>
           <p><code>word=suwi</code> — pin a specific glossary (or new) word when several match.</p>
@@ -119,22 +119,22 @@
       </details>
     </div>
 
-    <div class="workshop-tool translate-output">
+    <div class="generator-tool translate-output">
       <div class="tr-out-head">
-        <h3 class="workshop-h">Output</h3>
-        <button id="tr-copy" class="workshop-btn" type="button">Copy latin</button>
+        <h3 class="generator-h">Output</h3>
+        <button id="tr-copy" class="generator-btn" type="button">Copy latin</button>
       </div>
       <div id="tr-output" class="tr-output"></div>
     </div>
 
     <div id="tr-slots" class="tr-slots"></div>
 
-    <div id="tr-new" class="workshop-tool tr-new-words" hidden>
+    <div id="tr-new" class="generator-tool tr-new-words" hidden>
       <div class="tr-out-head">
-        <h3 class="workshop-h">New words to add to the lexicon</h3>
-        <button id="tr-new-copy" class="workshop-btn" type="button">Copy table rows</button>
+        <h3 class="generator-h">New words to add to the lexicon</h3>
+        <button id="tr-new-copy" class="generator-btn" type="button">Copy table rows</button>
       </div>
-      <p class="workshop-lead">Coined here but not in the glossary yet — remember to add them. A regular plural root is suggested where one applies.</p>
+      <p class="generator-lead">Coined here but not in the glossary yet — remember to add them. A regular plural root is suggested where one applies.</p>
       <div id="tr-new-list" class="tr-new-list"></div>
     </div>
 
@@ -162,7 +162,7 @@
 <script src="generator.js"></script>
 <script src="semantics.js"></script>
 <script src="app.js"></script>
-<script src="workshop.js"></script>
+<script src="generator-tab.js"></script>
 <script src="translate.js"></script>
 </body>
 </html>

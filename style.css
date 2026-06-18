@@ -795,8 +795,8 @@ em, i { color: var(--sea); font-style: italic; }
   .grid-2 { grid-template-columns: 1fr; }
 }
 
-/* ── Workshop tab ── */
-.workshop-tool {
+/* ── Generator tab ── */
+.generator-tool {
   border: 1px solid var(--dust);
   border-top: 3px solid var(--copper);
   border-radius: 2px;
@@ -805,7 +805,7 @@ em, i { color: var(--sea); font-style: italic; }
   margin-bottom: 1.8rem;
 }
 
-.workshop-h {
+.generator-h {
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 600;
@@ -815,14 +815,14 @@ em, i { color: var(--sea); font-style: italic; }
   margin-bottom: 0.4rem;
 }
 
-.workshop-lead {
+.generator-lead {
   font-size: 0.85rem;
   color: var(--ink-soft);
   margin-bottom: 1rem;
   max-width: 60ch;
 }
 
-.workshop-controls {
+.generator-controls {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -830,7 +830,7 @@ em, i { color: var(--sea); font-style: italic; }
   margin-bottom: 1.2rem;
 }
 
-.workshop-controls label {
+.generator-controls label {
   font-family: var(--font-display);
   font-size: 0.58rem;
   letter-spacing: 0.12em;
@@ -854,7 +854,7 @@ em, i { color: var(--sea); font-style: italic; }
 #gen-count:focus, .fam-input:focus { border-color: var(--sea); }
 .fam-input::placeholder { color: var(--ink-faint); }
 
-.workshop-btn {
+.generator-btn {
   font-family: var(--font-display);
   font-size: 0.64rem;
   letter-spacing: 0.12em;
@@ -867,7 +867,7 @@ em, i { color: var(--sea); font-style: italic; }
   border-radius: 2px;
   transition: background 0.15s, color 0.15s;
 }
-.workshop-btn:hover { background: var(--sea-light); border-color: var(--sea-light); }
+.generator-btn:hover { background: var(--sea-light); border-color: var(--sea-light); }
 
 /* Generated-word grid */
 .word-grid {
@@ -1047,7 +1047,7 @@ em, i { color: var(--sea); font-style: italic; }
 .en-chip:hover { border-color: var(--sea); background: var(--sea); color: var(--parchment); }
 
 @media (max-width: 520px) {
-  .workshop-tool { padding: 1.2rem 1.1rem 1.4rem; }
+  .generator-tool { padding: 1.2rem 1.1rem 1.4rem; }
   .fam-grid { grid-template-columns: 1fr; }
   .fam-en-group { grid-template-columns: 1fr; gap: 0.2rem; }
   .fam-en-rel { text-align: left; }
@@ -1071,7 +1071,7 @@ em, i { color: var(--sea); font-style: italic; }
 .tr-input:focus { border-color: var(--sea); }
 .tr-input::placeholder { color: var(--ink-faint); }
 
-.workshop-lead code,
+.generator-lead code,
 .tr-legend code {
   font-family: var(--font-mono);
   font-size: 0.82em;
@@ -1322,7 +1322,7 @@ em, i { color: var(--sea); font-style: italic; }
   gap: 1rem;
   margin-bottom: 0.9rem;
 }
-.translate-output .workshop-h { margin-bottom: 0; }
+.translate-output .generator-h { margin-bottom: 0; }
 
 .tr-output {
   display: flex;

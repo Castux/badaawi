@@ -1,6 +1,6 @@
 // ── Translation assistant tab ────────────────────────────────────────────────
-// A bulk lexicon lookup for the conlanger, hidden behind ?lab like the workshop.
-// The user types English (one concept per word); each word is matched against
+// A bulk lexicon lookup for the conlanger. The user types English (one concept
+// per word); each word is matched against
 // the glossary, the right entry and inflection are chosen, and the inflected
 // forms are assembled in an output box. It does NOT parse English — word order
 // and grammar stay the user's job; it only pulls translations and inflects them.
@@ -15,12 +15,6 @@
 // every card action edits the text and re-parses, so the two never drift.
 (function () {
   "use strict";
-
-  const params = new URLSearchParams(location.search);
-  if (!params.has("lab")) return;
-
-  const tabBtn = document.getElementById("tab-translate");
-  if (tabBtn) tabBtn.hidden = false;
 
   const esc  = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const dual = w => `<span class="lat">${esc(w)}</span><span class="scr">${esc(w)}</span>`;
@@ -292,7 +286,7 @@
       <form class="tr-add" data-act="add" data-i="${i}">
         <input class="tr-add-word" type="text" placeholder="conlang word" autocomplete="off" spellcheck="false">
         <select class="tr-add-class" title="word class (for inflection)"><option value="">—</option>${opts}</select>
-        <button class="tr-add-btn workshop-btn" type="submit">Add</button>
+        <button class="tr-add-btn generator-btn" type="submit">Add</button>
       </form>`;
   }
 

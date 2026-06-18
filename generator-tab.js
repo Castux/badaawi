@@ -1,4 +1,4 @@
-// ── Workshop tab ─────────────────────────────────────────────────────────────
+// ── Generator tab ────────────────────────────────────────────────────────────
 // A conlanger's bench, hidden from the public reference. Revealed only when the
 // page is opened with the ?lab URL parameter. Two tools:
 //   · Generate — batches of phonotactically legal words (generator.js).
@@ -16,7 +16,7 @@
 
   // Reveal the (otherwise hidden) tab button — app.js's generic tab handler
   // takes over the actual switching from here.
-  const tabBtn = document.getElementById("tab-workshop");
+  const tabBtn = document.getElementById("tab-generator");
   if (tabBtn) tabBtn.hidden = false;
 
   // ── Generator ──────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@
     if (!chip) return;
     famWordEl.value = chip.dataset.word;
     famMeanEl.focus();
-    famWordEl.closest(".workshop-tool").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    famWordEl.closest(".generator-tool").scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 
   // ── Family suggestions ───────────────────────────────────────────────────────
@@ -64,7 +64,7 @@
 
     let html = "";
     if (!fam.valid) {
-      html += `<p class="fam-warn">“${esc(fam.base)}” isn't a well-formed word — suggestions may be sparse.</p>`;
+      html += `<p class="fam-warn">"${esc(fam.base)}" isn't a well-formed word — suggestions may be sparse.</p>`;
     }
     html += `<p class="fam-root">root <span>${esc(fam.root || "—")}</span></p>`;
 
