@@ -1416,3 +1416,60 @@ em, i { color: var(--sea); font-style: italic; }
   color: var(--copper);
   white-space: nowrap;
 }
+
+/* ── Print ── */
+/* Strip interactive chrome and lay the active tab out as a clean paper
+   reference. The conscript is dropped in favour of the romanization, which is
+   the form that reliably survives printing/PDF export. */
+@media print {
+  :root { --sand: #fff; --parchment: #fff; }
+
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.4; }
+
+  /* Decorative + interactive elements have no place on paper. */
+  header::before,
+  .tabs,
+  .glossary-controls,
+  .grammar-nav,
+  .sort-arrow,
+  .forms-hint,
+  .modal-overlay,
+  .generator-btn,
+  .tr-input,
+  .tr-slots,
+  #tr-new,
+  .tr-legend { display: none !important; }
+
+  /* Latin only — hide the conscript everywhere. */
+  .script, .scr, .header-script { display: none !important; }
+
+  header {
+    background: none;
+    color: #000;
+    padding: 0 0 0.5rem;
+    text-align: left;
+    border-bottom: 2px solid #000;
+    margin-bottom: 1rem;
+  }
+  header h1 { color: #000; }
+  .header-subtitle, .header-gloss { color: #333; }
+
+  main { padding: 0; max-width: none; }
+
+  /* Show whichever tab is active; print it full width. */
+  .table-wrap { overflow: visible; border: none; }
+  table { font-size: 10pt; }
+  thead { background: none; color: #000; border-bottom: 1.5px solid #000; }
+  thead th { color: #000; }
+  tr, .form-section, .grammar-section { break-inside: avoid; }
+  td, th { border-color: #aaa !important; }
+
+  /* Grammar: single column, content only. */
+  .grammar-grid { display: block; }
+  .grammar-content { max-width: none; }
+
+  a { color: #000; text-decoration: none; }
+
+  /* Avoid orphaned headings at the foot of a page. */
+  h2, h3, h4 { break-after: avoid; }
+}

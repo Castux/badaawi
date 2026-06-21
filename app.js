@@ -28,6 +28,7 @@ let activeClass = "";
 let irregularOnly = false;
 let sortCol = 0;
 let sortAsc = true;
+let currentGrammarAnchor = "";       // id of the grammar section/heading in view
 
 // ── DOM refs ───────────────────────────────────────────────────────────────
 const searchEl    = document.getElementById("search");
@@ -154,7 +155,7 @@ headers.forEach(th => {
 });
 
 // ── Search ─────────────────────────────────────────────────────────────────
-searchEl.addEventListener("input", () => { query = searchEl.value; render(); });
+searchEl.addEventListener("input", () => { query = searchEl.value; render(); writeHash(); });
 
 // ── Class filter ───────────────────────────────────────────────────────────
 filterWrap.addEventListener("click", e => {
@@ -166,6 +167,7 @@ filterWrap.addEventListener("click", e => {
     irregularOnly = !irregularOnly;
     btn.classList.toggle("active", irregularOnly);
     render();
+    writeHash();
     return;
   }
 
@@ -174,6 +176,7 @@ filterWrap.addEventListener("click", e => {
   btn.classList.add("active");
   activeClass = btn.dataset.class;
   render();
+  writeHash();
 });
 
 // ── Declension / conjugation modal ───────────────────────────────────────────
@@ -241,14 +244,78 @@ formsOverlay.addEventListener("click", e => { if (e.target === formsOverlay) clo
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !formsOverlay.hidden) closeForms(); });
 
 // ── Tab switching ──────────────────────────────────────────────────────────
+function currentTab() {
+  return document.querySelector(".tab-btn.active")?.dataset.tab || "glossary";
+}
+
+function activateTab(name) {
+  const btn = document.querySelector(`.tab-btn[data-tab="${name}"]`);
+  if (!btn || btn.hidden) return false;
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("panel-" + name)?.classList.add("active");
+  return true;
+}
+
 document.querySelectorAll(".tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
-  });
+  btn.addEventListener("click", () => { activateTab(btn.dataset.tab); writeHash(); });
 });
+
+// ── URL state (deep linking) ─────────────────────────────────────────────────
+// Reflect the active tab + glossary controls (or the current grammar anchor)
+// into the URL hash so any view is bookmarkable and shareable. Uses replaceState
+// so typing/scrolling doesn't flood browser history (and never fires hashchange,
+// avoiding a feedback loop with applyHash below).
+function writeHash() {
+  const tab = currentTab();
+  let hash = tab;
+  if (tab === "glossary") {
+    const p = new URLSearchParams();
+    if (query.trim())  p.set("q", query.trim());
+    if (activeClass)   p.set("class", activeClass);
+    if (irregularOnly) p.set("irregular", "1");
+    const qs = p.toString();
+    if (qs) hash += "?" + qs;
+  } else if (tab === "grammar" && currentGrammarAnchor) {
+    hash = currentGrammarAnchor;       // gsec-… / g-… anchors imply the grammar tab
+  }
+  const target = "#" + hash;
+  if (location.hash !== target) history.replaceState(null, "", target);
+}
+
+// Mirror activeClass / irregularOnly onto the filter pills' active state.
+function syncFilterPills() {
+  filterWrap.querySelectorAll(".pill").forEach(p => {
+    if (p.dataset.filter === "irregular") p.classList.toggle("active", irregularOnly);
+    else p.classList.toggle("active", (p.dataset.class || "") === activeClass);
+  });
+}
+
+// Restore state from the hash. A grammar anchor (gsec-… / g-…) opens the grammar
+// tab and scrolls to that section/heading; otherwise the first segment is the
+// tab name and an optional ?query carries the glossary controls.
+function applyHash() {
+  const raw = location.hash.slice(1);
+  if (!raw) return;
+
+  if (raw.startsWith("gsec-") || raw.startsWith("g-")) {
+    if (activateTab("grammar")) document.getElementById(raw)?.scrollIntoView({ block: "start" });
+    return;
+  }
+
+  const [tab, qs] = raw.split("?");
+  if (!activateTab(tab)) return;       // unknown or hidden tab → keep the default
+  if (tab === "glossary") {
+    const p = new URLSearchParams(qs || "");
+    query         = p.get("q") || "";
+    activeClass   = p.get("class") || "";
+    irregularOnly = p.get("irregular") === "1";
+    searchEl.value = query;
+    syncFilterPills();
+    render();
+  }
+}
 
 // ── Language.md renderer ────────────────────────────────────────────────────
 // Tokens that look like language forms in italics but are abstract notation —
@@ -347,18 +414,22 @@ function renderGrammar(languageMd) {
   navLinks.forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const id = a.getAttribute('href').slice(1);
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      currentGrammarAnchor = id;
+      writeHash();
     });
   });
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
       const link = nav.querySelector(`a[href="#${entry.target.id}"]`);
       if (!link) return;
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
-      }
+      navLinks.forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+      currentGrammarAnchor = entry.target.id;
+      if (currentTab() === 'grammar') writeHash();
     });
   }, { rootMargin: '0px 0px -70% 0px', threshold: 0 });
 
@@ -393,5 +464,7 @@ async function fetchText(url) {
   buildFilters();
   render();
   renderGrammar(languageText);
+  applyHash();                          // restore tab/search/filters or grammar anchor on load
+  window.addEventListener("hashchange", applyHash);   // pasted or hand-edited links
   window.dispatchEvent(new Event("glossary-ready"));
 })();
