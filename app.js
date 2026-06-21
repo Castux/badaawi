@@ -15,6 +15,9 @@ function parseGlossaryMd(text) {
       cells[4] || "",  // notes
     ]);
   });
+  // Stamp each row with its position so render() can reference the original
+  // entry (for the forms modal) without an O(n) indexOf per visible row.
+  rows.forEach((r, i) => { r.idx = i; });
   return rows;
 }
 
@@ -22,6 +25,7 @@ function parseGlossaryMd(text) {
 let GLOSSARY = [];
 let query = "";
 let activeClass = "";
+let irregularOnly = false;
 let sortCol = 0;
 let sortAsc = true;
 
@@ -34,8 +38,11 @@ const headers     = document.querySelectorAll("thead th[data-col]");
 
 // ── Build class filter pills ───────────────────────────────────────────────
 function buildFilters() {
-  // Remove any pills added previously (except "All")
-  filterWrap.querySelectorAll(".pill:not([data-class=''])").forEach(p => p.remove());
+  // Remove any class pills added previously (keep "All", the separator and the
+  // standalone "Irregular" toggle, which live in the HTML).
+  filterWrap.querySelectorAll('.pill[data-class]:not([data-class=""])').forEach(p => p.remove());
+
+  const sep = filterWrap.querySelector(".filter-sep");
 
   const CLASSES = [...new Set(
     GLOSSARY.flatMap(r => r[1].split(/,\s*/))
@@ -46,7 +53,7 @@ function buildFilters() {
     btn.className = "pill";
     btn.dataset.class = cls;
     btn.textContent = cls;
-    filterWrap.appendChild(btn);
+    filterWrap.insertBefore(btn, sep);
   });
 }
 
@@ -63,20 +70,24 @@ function escHtml(s) {
   return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Render the plural-root cell, checking the listed root against the one derived
-// by the declension rule (decline.js) and exposing the verdict as a hover tip.
+// Render the plural-root cell. The listed root is checked against the one the
+// declension rule (decline.js) would derive; irregular roots get an "(irreg.)"
+// note carrying the would-be regular form as a hover tip.
 function pluralCell(word, plural, q) {
   if (!plural) return "";
   const inner = `<span class="latin">${hl(plural, q)}</span><span class="script">${plural}</span>`;
 
   const reg = Declension.pluralRegularity(word, plural);
-  const tip = reg.status === "regular"
-    ? "Regular — matches the derived plural root"
-    : reg.status === "irregular"
-      ? "Irregular — rule derives “" + reg.computed + "”"
-      : "Cannot derive — rule undefined for this form";
+  const mark = reg.status === "irregular"
+    ? `<span class="irreg-mark" data-tip="${escHtml("Irregular — rule derives “" + reg.computed + "”")}">(irreg.)</span>`
+    : "";
 
-  return `<span class="plural-cell ${reg.status}" data-tip="${escHtml(tip)}">${inner}</span>`;
+  return `<span class="plural-cell">${inner}${mark}</span>`;
+}
+
+// Is this entry's listed plural root irregular (diverges from the derived rule)?
+function isIrregular(word, plural) {
+  return !!plural && Declension.pluralRegularity(word, plural).status === "irregular";
 }
 
 // ── Render ─────────────────────────────────────────────────────────────────
@@ -88,8 +99,10 @@ function render() {
     const textMatch  = !q ||
       r[0].toLowerCase().includes(q) ||
       r[2].toLowerCase().includes(q) ||
-      r[3].toLowerCase().includes(q);
-    return classMatch && textMatch;
+      r[3].toLowerCase().includes(q) ||
+      r[4].toLowerCase().includes(q);
+    const irregMatch = !irregularOnly || isIrregular(r[0], r[3]);
+    return classMatch && textMatch && irregMatch;
   });
 
   // Sort
@@ -108,7 +121,7 @@ function render() {
   bodyEl.innerHTML = rows.map(r => {
     const inflect = Declension.isInflectable(r[0], r[1]);
     return `
-    <tr${inflect ? ` class="inflect" data-idx="${GLOSSARY.indexOf(r)}"` : ""}>
+    <tr${inflect ? ` class="inflect" data-idx="${r.idx}"` : ""}>
       <td class="word">
         <span class="word-line">
           <span class="latin">${hl(r[0], q)}</span>
@@ -119,7 +132,7 @@ function render() {
       <td class="class">${escHtml(r[1])}</td>
       <td class="translation">${hl(r[2], q)}</td>
       <td class="plural">${pluralCell(r[0], r[3], q)}</td>
-      <td class="notes">${escHtml(r[4])}</td>
+      <td class="notes">${hl(r[4], q)}</td>
     </tr>`;
   }).join("");
 }
@@ -147,7 +160,17 @@ searchEl.addEventListener("input", () => { query = searchEl.value; render(); });
 filterWrap.addEventListener("click", e => {
   const btn = e.target.closest(".pill");
   if (!btn) return;
-  filterWrap.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+
+  // The "Irregular" pill is an independent toggle, combinable with a class.
+  if (btn.dataset.filter === "irregular") {
+    irregularOnly = !irregularOnly;
+    btn.classList.toggle("active", irregularOnly);
+    render();
+    return;
+  }
+
+  // Class pills are single-select (leave the irregular toggle untouched).
+  filterWrap.querySelectorAll(".pill:not([data-filter])").forEach(p => p.classList.remove("active"));
   btn.classList.add("active");
   activeClass = btn.dataset.class;
   render();
@@ -343,11 +366,28 @@ function renderGrammar(languageMd) {
 }
 
 // ── Bootstrap ──────────────────────────────────────────────────────────────
+async function fetchText(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${url} — ${r.status} ${r.statusText}`);
+  return r.text();
+}
+
 (async () => {
-  const [glossaryText, languageText] = await Promise.all([
-    fetch('Glossary.md').then(r => r.text()),
-    fetch('Language.md').then(r => r.text()),
-  ]);
+  let glossaryText, languageText;
+  try {
+    [glossaryText, languageText] = await Promise.all([
+      fetchText('Glossary.md'),
+      fetchText('Language.md'),
+    ]);
+  } catch (err) {
+    // Most often the source files couldn't be loaded (e.g. opened over file://
+    // or a failed deploy). Surface it instead of leaving a blank page.
+    bodyEl.innerHTML = `<tr><td colspan="5" class="no-results">
+      Couldn't load the language data (${escHtml(err.message)}).
+      If you opened this file directly, serve the folder over http instead.
+    </td></tr>`;
+    return;
+  }
   GLOSSARY = parseGlossaryMd(glossaryText);
   window.GLOSSARY = GLOSSARY;            // shared with the translation assistant (translate.js)
   buildFilters();

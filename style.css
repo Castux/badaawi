@@ -3,6 +3,7 @@
   src: url('badaawi-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ── Tokens ── */
@@ -197,6 +198,19 @@ main {
 .pill:hover { border-color: var(--copper); color: var(--copper); }
 .pill.active { background: var(--sea); border-color: var(--sea); color: var(--parchment); }
 
+/* Divider between the class pills and the standalone "Irregular" toggle */
+.filter-sep {
+  align-self: stretch;
+  width: 1px;
+  margin: 0.1rem 0.15rem;
+  background: var(--dust);
+}
+
+/* The "Irregular" toggle: a flag, not a class — tinted to its accent role */
+.pill-flag.active { background: var(--accent); border-color: var(--accent); color: var(--parchment); }
+.pill-flag:hover { border-color: var(--accent); color: var(--accent); }
+.pill-flag.active:hover { color: var(--parchment); }
+
 .entry-count {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -306,28 +320,24 @@ td.plural .script {
   margin-top: 0.1rem;
 }
 
-/* Plural-root regularity indicator + hover tip (verdict from decline.js) */
+/* Plural-root cell + "(irreg.)" note with hover tip (verdict from decline.js) */
 .plural-cell {
   position: relative;
   display: inline-block;
+}
+
+/* Note shown only on irregular roots; carries the would-be regular form as tip */
+.irreg-mark {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
   cursor: help;
-  padding-right: 0.85em;
 }
 
-/* Dot keyed to the verdict: regular (sea), irregular (accent), unknown (faint) */
-.plural-cell::before {
-  content: "";
-  position: absolute;
-  top: 50%; right: 0;
-  transform: translateY(-50%);
-  width: 6px; height: 6px;
-  border-radius: 50%;
-}
-.plural-cell.regular::before   { background: var(--sea-light); }
-.plural-cell.irregular::before { background: var(--accent); }
-.plural-cell.unknown::before   { background: var(--ink-faint); }
-
-.plural-cell:hover::after {
+.irreg-mark:hover::after {
   content: attr(data-tip);
   position: absolute;
   bottom: calc(100% + 7px);
